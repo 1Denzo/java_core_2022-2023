@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Test_9 {
     public static void main(String[] args) {
         Scanner id = new Scanner(System.in);
-        System.out.println("Введите размер массива");
+        System.out.println("Введите размер массива: ");
         int size = id.nextInt();
         System.out.println("Размер массива равен " + size);
         int [] nums = new int[size];

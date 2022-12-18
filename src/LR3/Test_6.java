@@ -13,7 +13,7 @@ public class Test_6 {
         if (size>=1){
         for (int i = 0; member_interator <= size-1; i++) {
             if (i % 5 == 2) {
-                System.out.println(member_interator+" член массива равен " + i + ".");
+                System.out.println(member_interator + " член массива равен " + i + ".");
                 array[member_interator] = i;
                 member_interator++;
             }

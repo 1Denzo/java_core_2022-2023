@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         long n = in.nextLong();
+        System.out.println("\n");
         for (long i = 0; i < n; i++) {
             long x = in.nextLong() -1;
             long y = (long) Math.sqrt(8*x + 1);

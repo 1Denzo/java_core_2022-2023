@@ -1,4 +1,4 @@
-package gShildt_Test.chapter_8_inheritance;
+package gShildt_Test.chapter_8_legacy;
 class boxSuper_80 {
     // Полная реализация класса BoxWeight
     private double width;

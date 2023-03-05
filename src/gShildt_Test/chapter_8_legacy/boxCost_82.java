@@ -1,4 +1,4 @@
-package gShildt_Test.chapter_8_inheritance;
+package gShildt_Test.chapter_8_legacy;
 
 class boxCost_82 {
     // Расширение класса BoxWeight включением в него

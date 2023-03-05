@@ -1,4 +1,4 @@
-package gShildt_Test.chapter_8_inheritance;
+package gShildt_Test.chapter_8_legacy;
 
 public class A_78 {
     // Простой пример наследования

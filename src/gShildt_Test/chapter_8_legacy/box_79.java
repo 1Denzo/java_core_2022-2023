@@ -1,4 +1,4 @@
-package gShildt_Test.chapter_8_inheritance;
+package gShildt_Test.chapter_8_legacy;
 // В этой программе наследование применяется
 //для расширения класса Вох
 class box_79 {

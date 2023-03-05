@@ -11,7 +11,7 @@ public class Task_1293 {
         int N = in.nextInt();
         int A = in.nextInt();
         int B = in.nextInt();
-        int result = N * (A * B) * 2;
+        int result = N * ((A * B) * 2);
         out.println(result);
         out.flush();
     }

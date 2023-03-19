@@ -24,14 +24,6 @@ import static java.lang.System.in;
 
 public class Primer4 {
     public static void main(String[] args) {
-        try {
-            //Создание исходного файла numIsh.txt и записать в него число типа float
-            File f1 = new File("D:\\My\\numIsh.txt");
-            f1.createNewFile();
-            Scanner sc = new Scanner(System.in, "cp1251");
-            DataOutputStream wr = new DataOutputStream(new FileOutputStream(f1.getAbsolutePath()));
 
-        }
-    }
-}
+}}
 

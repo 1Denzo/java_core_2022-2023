@@ -1,10 +1,5 @@
 package LR8.Primer4;
 
-import java.io.*;
-import java.util.Scanner;
-
-import static java.lang.System.out;
-import static java.lang.System.in;
 /* Программу Primer4 составить в соответствии со следующим алгоритмом:
 1. Создать новую папку My на диске.
 2. В папке создать 1-й файл numIsh.txt.
@@ -22,8 +17,51 @@ import static java.lang.System.in;
 6. Закончить.
 */
 
+import java.io.*;
+import java.nio.channels.ScatteringByteChannel;
+import java.util.Date;
+import java.util.Scanner;
+
 public class Primer4 {
     public static void main(String[] args) {
+try {
+    // Создание исходного файла numIsh.txt и запись в него чисел типа float
+    File f1 = new File("D:\\My\\numIs.txt");
+            f1.createNewFile();
+    Scanner sc = new Scanner(System.in, "cp1251");
 
+    DataOutputStream wr = new DataOutputStream(new FileOutputStream(f1.getAbsolutePath()));
+    System.out.println("Сколько вещественных чисел записать в файл?");
+    int count = sc.nextInt();
+
+    System.out.println("Введите числа:");
+    for (int i = 0; i < count; i++) {
+        wr.writeFloat(sc.nextFloat());
+    }
+        wr.flush();
+        wr.close();
+
+        // Создание файла numRez.txt и переписывание в него чисел из numIsh.txt
+File f2 = new File("D:\\My\\numRez.txt");
+f2.createNewFile();
+
+// Поток для чтения из исходного файла nimIsh.txt
+    DataInputStream rd = new DataInputStream(new FileInputStream(f1.getAbsolutePath()));
+    // Поток в результирующий файл numRez.txt
+    wr = new DataOutputStream(new FileOutputStream(f2.getAbsolutePath()));
+    try {
+        while (true) {
+                float number = rd.readFloat();
+                wr.writeFloat(number);
+                System.out.println("Число " + (float) number);
+            }
+        } catch(EOFException e){
+        }
+        wr.flush();
+        wr.close();
+        rd.close();
+    }catch (IOException e){
+        System.out.println("End of file");
+    }
 }}
 

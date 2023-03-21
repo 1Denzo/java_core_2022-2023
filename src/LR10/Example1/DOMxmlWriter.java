@@ -27,15 +27,15 @@ import org.w3c.dom.Node;
                 Document doc = builder.newDocument();
                 // создаем корневой элемент
                 Element rootElement =
-                        doc.createElementNS("https://javadevblog.com/language", "Languages");
+                        doc.createElement("Motobike");
                 // добавляем корневой элемент в объект Document
                 doc.appendChild(rootElement);
 
                 // добавляем первый дочерний элемент к корневому
-                rootElement.appendChild(getLanguage(doc, "1", "Java", "21"));
+                rootElement.appendChild(getMotobike(doc, "1", "Honda", "TransAlp", "15"));
 
                 //добавляем второй дочерний элемент к корневому
-                rootElement.appendChild(getLanguage(doc, "2", "C", "44"));
+                rootElement.appendChild(getMotobike(doc, "2", "Kawasaki", "Ninja", "17"));
 
                 //создаем объект TransformerFactory для печати в консоль
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -46,7 +46,7 @@ import org.w3c.dom.Node;
 
                 //печатаем в консоль или файл
                 StreamResult console = new StreamResult(System.out);
-                StreamResult file = new StreamResult(new File("C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1\\languages1.xml"));
+                StreamResult file = new StreamResult(new File("C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1\\Motobike1.xml"));
 
                 //записываем данные
                 transformer.transform(source, console);
@@ -59,18 +59,21 @@ import org.w3c.dom.Node;
         }
 
         // метод для создания нового узла XML-файла
-        private static Node getLanguage(Document doc, String id, String name, String age) {
-            Element language = doc.createElement("Language");
+        private static Node getMotobike(Document doc, String id, String vendor,String model, String age) {
+            Element Motobike = doc.createElement("Motobike");
 
             // устанавливаем атрибут id
-            language.setAttribute("id", id);
+            Motobike.setAttribute("id", id);
 
-            // создаем элемент name
-            language.appendChild(getLanguageElements(doc, language, "name", name));
+            // создаем элемент Vendor
+            Motobike.appendChild(getLanguageElements(doc, Motobike, "Vendor", vendor));
+
+            // создаем элемент Model
+            Motobike.appendChild(getLanguageElements(doc, Motobike, "Model", model));
 
             // создаем элемент age
-            language.appendChild(getLanguageElements(doc, language, "age", age));
-            return language;
+            Motobike.appendChild(getLanguageElements(doc, Motobike, "age", age));
+            return Motobike;
         }
 
 

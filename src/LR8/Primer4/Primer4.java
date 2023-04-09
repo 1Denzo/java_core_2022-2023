@@ -26,13 +26,16 @@ public class Primer4 {
     public static void main(String[] args) {
 try {
     // Создание исходного файла numIsh.txt и запись в него чисел типа float
-    File f1 = new File("D:\\My\\numIs.txt");
-            f1.createNewFile();
-    Scanner sc = new Scanner(System.in, "cp1251");
 
-    DataOutputStream wr = new DataOutputStream(new FileOutputStream(f1.getAbsolutePath()));
+    Scanner sc = new Scanner(System.in);
     System.out.println("Сколько вещественных чисел записать в файл?");
     int count = sc.nextInt();
+
+
+
+    File f1 = new File("D:\\My\\numIs.txt");
+    f1.createNewFile();
+    DataOutputStream wr = new DataOutputStream(new FileOutputStream(f1.getAbsolutePath()));
 
     System.out.println("Введите числа:");
     for (int i = 0; i < count; i++) {

@@ -8,8 +8,8 @@ public class A2_81 {
         // создать подкласс путем расширения класса А
         class C extends A2_81 {
             int i; // этот член i скрывает член i из класса А
-            C(int а, int b) {
-                super.i = а; //член i из класса А
+            C(int a, int b) {
+                super.i = a; //член i из класса А
                 i = b; //член i из класса В
             }
                 void show () {

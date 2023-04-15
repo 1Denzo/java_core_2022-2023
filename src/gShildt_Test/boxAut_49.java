@@ -20,7 +20,7 @@ public class boxAut_49 {
             return width * height * depth;
         }
     }
-                class BoxDemoб {
+                class BoxDemoB {
                     public static void main(String args[]) {
 // объявить, выделить память и инициализировать
 //объекты типа Вох

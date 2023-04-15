@@ -7,14 +7,14 @@ public class overLoad2_53 {
     }
 //Перегружаемый метод, проверяющий наличие
 // двух целочисленных параметров
-    void test(int а, int b) {
-        System.out.println("a и b: " + а + " " + b);
+    void test(int a, int b) {
+        System.out.println("a и b: " + a + " " + b);
     }
 
     // Перегружаемый метод, проверяющий наличие
 //параметра типа double
-    void test(double а) {
-        System.out.println("Bнyтpeннee преобразование при вызове " + "test(double) а:" + а);
+    void test(double a) {
+        System.out.println("Bнyтpeннee преобразование при вызове " + "test(double) а:" + a);
     }
 }
                     class Over {

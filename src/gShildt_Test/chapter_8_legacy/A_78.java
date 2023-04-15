@@ -10,7 +10,7 @@ public class A_78 {
         }
     }
 // создать подкласс путем расширения класса А
-        class В extends A_78 {
+        class B extends A_78 {
     int k;
 
     void showk() {
@@ -24,7 +24,7 @@ public class A_78 {
     class Simpleinheritance {
         public static void main(String args[]) {
             A_78 superOb = new A_78();
-            В subOb = new В();
+            B subOb = new B();
 // суперкласс может использоваться самостоятельно
             superOb.i = 10;
             superOb.j = 20;

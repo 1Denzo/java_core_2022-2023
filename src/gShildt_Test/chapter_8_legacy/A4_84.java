@@ -4,8 +4,8 @@ public class A4_84 {
     //Переопределение метода
     int i, j;
 
-    A4_84(int а, int b) {
-        i = а;
+    A4_84(int a, int b) {
+        i = a;
         j = b;
     }
 

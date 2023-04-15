@@ -7,19 +7,19 @@ public class overLoad_52 {
         }
 // Перегружаемый метод, проверяющий наличие
 // одного целочисленного параметра
-            void test ( int а) {
-                System.out.println("a: " + а);
+            void test ( int a) {
+                System.out.println("a: " + a);
             }
 // Перегружаемый метод, проверяющий наличие
 // двух целочисленных параметров
-                void test ( int а, int b) {
-                    System.out.println("a и b: " + а + " " + b);
+                void test ( int a, int b) {
+                    System.out.println("a и b: " + a + " " + b);
 // Перегружаемый метод, проверяющий наличие
 //параметра типа double
                 }
-                    double test ( double а){
-                        System.out.println("double а: " + а);
-                        return а * а;
+                    double test ( double a){
+                        System.out.println("double а: " + a);
+                        return a * a;
                     }
                 }
                         class Overload {

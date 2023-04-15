@@ -4,8 +4,8 @@ class A5_85 {
     //Переопределение метода
     int i, j;
 
-    A5_85(int а, int b) {
-        i = а;
+    A5_85(int a, int b) {
+        i = a;
         j = b;
     }
 

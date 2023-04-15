@@ -13,10 +13,10 @@ public class forEach3_37 {
 
         //использовать цикл for в стиле for each для
         //вывода и суммирования значений
-        for (int х[] : nums) {
-            for (int у : х) {
-                System.out.println("Знaчeниe равно: " + у);
-                sum += у;
+        for (int x[] : nums) {
+            for (int y : x) {
+                System.out.println("Знaчeниe равно: " + y);
+                sum += y;
             }
                 System.out.println("Cyммa: " + sum);
             }

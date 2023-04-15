@@ -33,7 +33,7 @@ try {
 
 
 
-    File f1 = new File("D:\\My\\numIs.txt");
+    File f1 = new File("D:\\tmp\\numIs.txt");
     f1.createNewFile();
     DataOutputStream wr = new DataOutputStream(new FileOutputStream(f1.getAbsolutePath()));
 
@@ -45,7 +45,7 @@ try {
         wr.close();
 
         // Создание файла numRez.txt и переписывание в него чисел из numIsh.txt
-File f2 = new File("D:\\My\\numRez.txt");
+File f2 = new File("D:\\tmp\\numRez.txt");
 f2.createNewFile();
 
 // Поток для чтения из исходного файла nimIsh.txt

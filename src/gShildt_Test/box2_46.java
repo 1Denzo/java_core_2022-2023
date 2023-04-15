@@ -12,7 +12,7 @@ class box2_46 {
         System.out.println(width * height * depth);
     }
 }
-            class BoxDemoЗ {
+            class BoxDemoZ {
                 public static void main(String args[]) {
                     box2_46 mybox1 = new box2_46();
                     box2_46 mybox2 = new box2_46();

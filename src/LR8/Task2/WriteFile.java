@@ -3,39 +3,36 @@ package LR8.Task2;
 import java.io.*;
 import java.util.Scanner;
 
-
 public class WriteFile {
 
         public static void main(String[] args) {
+
             Scanner sc = new Scanner(System.in, "UTF-8");
-            System.out.print("Введите имя файла => ");
+            System.out.print("Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р° => ");
             String fname = sc.nextLine();
             try {
-                File f1 = new File("D:\\tmp\\" + fname + ".txt");
-                f1.createNewFile(); // файл создан
-                System.out.println("Файл создан. Полный путь файла: " + f1.getAbsolutePath());
+                File fw = new File( "D:\\tmp\\" + fname + ".txt");
+                 fw.createNewFile(); // С„Р°Р№Р» СЃРѕР·РґР°РЅ
+                System.out.println("РџСѓС‚СЊ Рє С„Р°Р№Р»Сѓ: " + fw.getAbsolutePath());
                 int n = 1;
                 int j = 5;
-                    BufferedWriter dOut = new BufferedWriter(new FileWriter(f1.getAbsolutePath()));
-                    for (int i = 0; i <= n; i++) {
-                        System.out.print("Введите " + (i + 1) + " строку для записи в файл => ");
-                        String s = sc.nextLine();
-                        dOut.write(s + "\n");
-                        if (i == 1) {
-                            for (int k = 0; k < j; k++) {
-                                System.out.print("Введите " + (k + 1) + " число из " + j + " чисел double для записи в файл => ");
-                                Double dl = sc.nextDouble();
-                                dOut.write(dl.toString() + "\n");
-                            }
-                        }
+                BufferedWriter dOut = new BufferedWriter(new FileWriter(fw));
+                for (int i = 0; i <= n; i++) {
+                    System.out.print("Р’РІРµРґРёС‚Рµ " + (i + 1) + " СЃС‚СЂРѕРєСѓ РґР»СЏ Р·Р°РїРёСЃРё РІ С„Р°Р№Р» => ");
+                    String s = sc.nextLine();
+                    dOut.write(s + "\n");
+                    if (i == 1) {
+                        for (int k = 0; k < j; k++) {
+                            System.out.print("Р’РІРµРґРёС‚Рµ " + (k + 1) + " С‡РёСЃР»Рѕ РёР· " + j + " С‡РёСЃРµР» double РґР»СЏ Р·Р°РїРёСЃРё РІ С„Р°Р№Р» => ");
+                            Double dl = sc.nextDouble();
+                            dOut.write(dl.toString() + "\n");                        }
                     }
-                    dOut.flush();
-                    dOut.close();
-                    System.out.println("Файл записан.");
-                } catch (IOException e) {
-                    System.out.println("" + e);
                 }
+                dOut.flush();
+                dOut.close();
+                System.out.println("Р¤Р°Р№Р» Р·Р°РїРёСЃР°РЅ.");
+            } catch (IOException e) {
+                System.out.println("" + e);
             }
-            }
-
+        }}
 

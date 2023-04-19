@@ -11,7 +11,7 @@ public class WriteFile {
             System.out.print("Введите имя файла => ");
             String fname = sc.nextLine();
             try {
-                File fw = new File( "D:\\tmp\\" + fname + ".txt");
+                File fw = new File( "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR8\\Task2\\" + fname + ".txt");
                  fw.createNewFile(); // файл создан
                 System.out.println("Путь к файлу: " + fw.getAbsolutePath());
                 int n = 1;

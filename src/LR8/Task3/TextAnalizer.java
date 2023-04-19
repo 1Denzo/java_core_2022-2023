@@ -1,7 +1,7 @@
-package LR8.Task2;
+package LR8.Task3;
 
 import java.io.*;
-public class fdshy {
+public class TextAnalizer {
 
         public static void main(String[] args) throws IOException {
             BufferedReader br = null;
@@ -10,10 +10,10 @@ public class fdshy {
                 String letters = "бБвВгГдДжЖзЗйЙкКлЛмМнНпПрРсСтТфФхХцЦчЧшШщЩ";
                 br = new BufferedReader(
                         new InputStreamReader(
-                                new FileInputStream("D:\\tmp\\tolstoy.txt")));
-                File f1 = new File("D:\\tmp\\tolstoy2.txt");
+                                new FileInputStream("C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR8\\Task3\\tolstoy.txt")));
+                File f1 = new File("C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR8\\Task3\\tolstoy2.txt");
                 f1.createNewFile();
-                out = new PrintWriter("D:\\tmp\\tolstoy2.txt");
+                out = new PrintWriter("C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR8\\Task3\\tolstoy2.txt");
                 String stroka;
                 int counterLine = 0;
                 int counter = 0;
@@ -31,8 +31,8 @@ public class fdshy {
 
                         }
                     }
-                    out.print(" Кол-во слов - " + counter);
-                    System.out.print("Кол-во слов - " + counter + "\n");
+                    out.print("Количество слов в строке начиающихся с согласных - " + counter);
+                    System.out.print("Количество слов в строке начиающихся с согласных - " + counter + "\n");
                     counterLine++;
                     out.println();
                 }

@@ -1,11 +1,9 @@
-package LR10.Example2;
+package LR10.Example2JSON;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.FileWriter;
-
-import static java.lang.System.out;
 
 public class JsonCreator {
     public static void main(String[] args) {
@@ -27,7 +25,7 @@ public class JsonCreator {
 
         library.put("books", books);
 
-        try (FileWriter file = new FileWriter("src/LR10/Example2/example-json.json")){
+        try (FileWriter file = new FileWriter("src/LR10/Example2JSON/example-json.json")){
           file.write( library.toJSONString());
           System.out.println("Json файл успешно создан!");
         } catch (Exception e){

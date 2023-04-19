@@ -1,9 +1,8 @@
-package LR10.Example4;
+package LR10.Example4XLSX;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -30,7 +29,7 @@ public class WriteExelFileExample {
         dataRow2.createCell(2).setCellValue(25000);
 
         // Записываем книгу Exel в файл
-        String filePath = "src/LR10/Example4/example4.xlsx";
+        String filePath = "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example4XLSX\\exampleExel.xlsx";
         FileOutputStream outputStream = new FileOutputStream(filePath);
         workbook.write(outputStream);
         workbook.close();

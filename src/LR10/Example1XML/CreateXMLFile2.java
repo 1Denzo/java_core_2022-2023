@@ -1,4 +1,4 @@
-package LR10.Example1;
+package LR10.Example1XML;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

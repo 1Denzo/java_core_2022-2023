@@ -1,4 +1,4 @@
-package LR10.Example2;
+package LR10.Example2JSON;
 
 import java.io.FileReader;
 import org.json.simple.JSONArray;
@@ -10,7 +10,7 @@ public class JsonParcer {
     public static  void main(String[] args) {
         try {
             JSONParser parser = new JSONParser();
-            Object obj = parser.parse(new FileReader("C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example2\\example-json.json"));
+            Object obj = parser.parse(new FileReader("C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example2JSON\\example-json.json"));
             JSONObject jsonObject = (JSONObject) obj;
             System.out.println("Корневой элемент: "
                     + jsonObject.keySet().iterator().next());

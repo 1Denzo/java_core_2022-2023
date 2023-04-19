@@ -1,4 +1,4 @@
-package LR8.Task3;
+package LR8.Primer10.Task3;
 
 import java.io.*;
 public class TextAnalizer {

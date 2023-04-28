@@ -27,15 +27,15 @@ import org.w3c.dom.Node;
                 Document doc = builder.newDocument();
                 // создаем корневой элемент
                 Element rootElement =
-                        doc.createElement("Motobike");
+                        doc.createElement("Motobikes");
                 // добавляем корневой элемент в объект Document
                 doc.appendChild(rootElement);
 
                 // добавляем первый дочерний элемент к корневому
-                rootElement.appendChild(getMotobike(doc, "1", "Honda", "TransAlp", "15"));
+                rootElement.appendChild(getMotobike(doc, "Honda", "TransAlp", "15"));
 
                 //добавляем второй дочерний элемент к корневому
-                rootElement.appendChild(getMotobike(doc, "2", "Kawasaki", "Ninja", "17"));
+                rootElement.appendChild(getMotobike(doc, "Kawasaki", "Ninja", "17"));
 
                 //создаем объект TransformerFactory для печати в консоль
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -46,7 +46,7 @@ import org.w3c.dom.Node;
 
                 //печатаем в консоль или файл
                 StreamResult console = new StreamResult(System.out);
-                StreamResult file = new StreamResult(new File("C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1\\Motobike1.xml"));
+                StreamResult file = new StreamResult(new File("C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1XML\\Motobike1.xml"));
 
                 //записываем данные
                 transformer.transform(source, console);
@@ -59,26 +59,23 @@ import org.w3c.dom.Node;
         }
 
         // метод для создания нового узла XML-файла
-        private static Node getMotobike(Document doc, String id, String vendor,String model, String age) {
+        private static Node getMotobike(Document doc, String vendor,String model, String age) {
             Element Motobike = doc.createElement("Motobike");
 
-            // устанавливаем атрибут id
-            Motobike.setAttribute("id", id);
-
             // создаем элемент Vendor
-            Motobike.appendChild(getLanguageElements(doc, Motobike, "Vendor", vendor));
+            Motobike.appendChild(getLanguageElements(doc, "Vendor", vendor));
 
             // создаем элемент Model
-            Motobike.appendChild(getLanguageElements(doc, Motobike, "Model", model));
+            Motobike.appendChild(getLanguageElements(doc, "Model", model));
 
             // создаем элемент age
-            Motobike.appendChild(getLanguageElements(doc, Motobike, "age", age));
+            Motobike.appendChild(getLanguageElements(doc, "age", age));
             return Motobike;
         }
 
 
         // утилитный метод для создание нового узла XML-файла
-        private static Node getLanguageElements(Document doc, Element element, String name, String value) {
+        private static Node getLanguageElements(Document doc, String name, String value) {
             Element node = doc.createElement(name);
             node.appendChild(doc.createTextNode(value));
             return node;

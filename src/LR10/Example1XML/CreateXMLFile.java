@@ -58,7 +58,7 @@ public class CreateXMLFile {
             transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             javax.xml.transform.dom.DOMSource source = new DOMSource(doc);
-            javax.xml.transform.stream.StreamResult result = new javax.xml.transform.stream.StreamResult(new File("src/LR10/Example1/example.xml"));
+            javax.xml.transform.stream.StreamResult result = new javax.xml.transform.stream.StreamResult(new File("src/LR10/Example1XML/example.xml"));
             transformer.transform(source, result);
             System.out.println("Файл XML успешно создан!");
         } catch (Exception pce) {

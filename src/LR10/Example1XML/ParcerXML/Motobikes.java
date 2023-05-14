@@ -31,10 +31,8 @@ public class Motobikes {
 
     @Override
     public String toString() {
-        return "Motobikes{" +
-                "name='" + name + '\'' +
+        return "name='" + name + '\'' +
                 ", id='" + id + '\'' +
-                ", motobikes=" + motobikes +
-                '}';
+                ", " + motobikes;
     }
 }

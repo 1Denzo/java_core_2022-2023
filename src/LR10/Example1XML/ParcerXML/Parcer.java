@@ -23,9 +23,7 @@ public class Parcer {
     private static final String TAG_MODEL = "Model";
     private static final String TAG_AGE = "age";
 
-    public Document pars () {
-
-
+    public Motobikes pars() {
         Document doc;
 
         try {
@@ -34,7 +32,8 @@ public class Parcer {
             System.out.println("Ошибка открытия парсинга!!!" + e.toString());
             return null;
         }
-        return doc;
+        Motobikes motobikes = parsMoto(doc);
+        return motobikes;
     }
 
         public Motobikes parsMoto(Document doc){
@@ -50,8 +49,7 @@ public class Parcer {
                     continue;
                 }
                 NamedNodeMap attributes = rootChilds.item(i).getAttributes();  // атрибуты дочернего узла
-                id = Integer.valueOf(attributes.getNamedItem(TAG_ID).getNodeValue());
-                // получение и преобразование в int значение атрибута
+                id = Integer.valueOf(attributes.getNamedItem(TAG_ID).getNodeValue());// получение и преобразование в int значение атрибута
                 mainName = rootChilds.item(i).getNodeName();
                 motobikes.setName(mainName);
                 motobikes.setId(id);
@@ -82,7 +80,7 @@ public class Parcer {
                 Motobike motobike1 = new Motobike(vendor, model, age);
                 motobikeList.add(motobike1);
                 motobikes.setMotobikes(motobikeList);
-                //System.out.println(motobikes.toString());
+                System.out.println(motobikes.toString());
             }
             return motobikes;
         }

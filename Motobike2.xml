@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Motobike>
+    <Motobike id="1">
+        <Vendor>Урал</Vendor>
+        <Model>Турист</Model>
+        <age>34</age>
+    </Motobike>
+    <Motobike id="2">
+        <Vendor>Honda</Vendor>
+        <Model>Transalp</Model>
+        <age>18</age>
+    </Motobike>
+</Motobike>

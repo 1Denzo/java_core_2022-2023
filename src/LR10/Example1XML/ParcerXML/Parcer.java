@@ -37,7 +37,7 @@ public class Parcer {
     }
 
         public Motobikes parsMoto(Document doc){
-            Motobikes motobikes = new Motobikes();
+            Motobikes motobikes = null;
             Node rootNode = doc.getFirstChild();
             NodeList rootChilds = rootNode.getChildNodes();
             //  NodeList motobike = null;
@@ -77,9 +77,7 @@ public class Parcer {
                             throw new IllegalStateException("Unexpected value: " + motobike.item(j).getNodeName());
                     }
                 }
-                Motobike motobike1 = new Motobike(vendor, model, age);
-                motobikeList.add(motobike1);
-                motobikes.setMotobikes(motobikeList);
+                motobikes.SetBike(vendor, model, age);
                 System.out.println(motobikes.toString());
             }
             return motobikes;

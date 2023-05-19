@@ -1,13 +1,18 @@
 package LR10.Example1XML.ParcerXML;
 
-import org.w3c.dom.NodeList;
 
-import java.util.List;
-
-public class Motobikes {
+public class Motobikes extends Motobike {
     private String name;
     private int id;
-    private List<Motobike> motobikes;
+
+    public Motobikes(String vendor, String model, int age) {
+        super(vendor, model, age);
+    }
+
+    public Motobikes SetBike(String vendor, String model, int age) {
+        Motobike setbike = new Motobike(vendor, model, age);
+        return null;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -15,24 +20,5 @@ public class Motobikes {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setMotobikes(List<Motobike> motobikes) {
-        this.motobikes = motobikes;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public List<Motobike> getMotobikes() {
-        return motobikes;
-    }
-
-    @Override
-    public String toString() {
-        return "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", " + motobikes;
     }
 }

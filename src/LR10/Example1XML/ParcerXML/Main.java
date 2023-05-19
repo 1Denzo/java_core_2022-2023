@@ -6,7 +6,7 @@ public class Main {
         //Использовать оператор цикла do-while для выбора пункта меню
         public static void main(String args[])
                 throws java.io.IOException {
-            char choice, choice2;
+            char choice;
             do {
                 System.out.println("Парсер XML v.0.1\n:");
                 System.out.println("Выберите действие: ");
@@ -25,14 +25,14 @@ public class Main {
                     Parcer pars = new Parcer();
                     Motobikes motoBikes = pars.pars();
                     System.out.println("Motobikes " + motoBikes.toString());
-
                     break;
                 case '2':
-                    System.out.println("Поиск по полям Motobike: ) {");
-                    System.out.println("1. Поиск по полю Vendor ");
-                    System.out.println("2. Поиск по полю Model ");
-                    System.out.println("3. Поиск по полю Age ");
-                    System.out.println("4. Исходное меню");
+                        System.out.println("Поиск по полям Motobike: ) {");
+                        System.out.println("1. Поиск по полю Vendor ");
+                        System.out.println("2. Поиск по полю Model ");
+                        System.out.println("3. Поиск по полю Age ");
+                        System.out.println("4. Исходное меню");
+                        choice = (char) System.in.read();
                     break;
                 case '3':
                     System.out.println("Добавление узла в файл XML: ");

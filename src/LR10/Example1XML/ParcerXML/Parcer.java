@@ -32,18 +32,19 @@ public class Parcer {
             System.out.println("Ошибка открытия парсинга!!!" + e.toString());
             return null;
         }
-        Motobikes motobikes = parsMoto(doc);
-        return motobikes;
+        Motobikes motobikes2 = parsMoto(doc);
+        return motobikes2;
     }
 
-        public Motobikes parsMoto(Document doc){
-            Motobikes motobikes = null;
+        public Motobikes parsMoto(Document doc) {
+            //Motobikes motobikes1 = null;
             Node rootNode = doc.getFirstChild();
             NodeList rootChilds = rootNode.getChildNodes();
             //  NodeList motobike = null;
             String mainName;
             int id, age = 0;
             String model = "", vendor = "";
+            Motobikes motobikes1 = null;
             for (int i = 0; i < rootChilds.getLength(); i++) {
                 if (rootChilds.item(i).getNodeType() != Node.ELEMENT_NODE) {
                     continue;
@@ -51,11 +52,10 @@ public class Parcer {
                 NamedNodeMap attributes = rootChilds.item(i).getAttributes();  // атрибуты дочернего узла
                 id = Integer.valueOf(attributes.getNamedItem(TAG_ID).getNodeValue());// получение и преобразование в int значение атрибута
                 mainName = rootChilds.item(i).getNodeName();
-                motobikes.setName(mainName);
-                motobikes.setId(id);
+                //motobikes1.setName(mainName);
+                //motobikes1.setId(id);
 
                 NodeList motobike = rootChilds.item(i).getChildNodes();
-                List<Motobike> motobikeList = new ArrayList<>();
                 for (int j = 0; j < motobike.getLength(); j++) {
                     if (motobike.item(j).getNodeType() != Node.ELEMENT_NODE) {
                         continue;
@@ -77,10 +77,9 @@ public class Parcer {
                             throw new IllegalStateException("Unexpected value: " + motobike.item(j).getNodeName());
                     }
                 }
-                motobikes.SetBike(vendor, model, age);
-                System.out.println(motobikes.toString());
+                motobikes1 = new Motobikes(mainName, id, vendor, model, age);
             }
-            return motobikes;
+            return motobikes1;
         }
 
     private Document buildDocument() throws ParserConfigurationException, IOException, SAXException {

@@ -1,7 +1,7 @@
 package LR10.Example1XML.ParcerXML;
 
 
-public class Motobikes {
+public class Motobike {
     private String name;
     private int id;
     private String vendor;
@@ -19,7 +19,7 @@ public class Motobikes {
                 '}';
     }
 
-    public Motobikes(String name, int id, String vendor, String model, int age) {
+    public Motobike(String name, int id, String vendor, String model, int age) {
         this.name = name;
         this.id = id;
         this.vendor = vendor;

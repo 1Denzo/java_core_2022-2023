@@ -20,7 +20,7 @@ public class Main {
             switch (choice) {
                 case '1':
                     Parcer pars = new Parcer();
-                    Motobikes motoBikes = pars.pars();
+                    MotobikesList motoBikes = pars.pars();
                     System.out.println(motoBikes.toString());
                     break;
                 case '2':

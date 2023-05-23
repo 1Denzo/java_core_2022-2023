@@ -23,7 +23,7 @@ public class Parcer {
     private static final String TAG_MODEL = "Model";
     private static final String TAG_AGE = "age";
 
-    public Motobikes pars() {
+    public MotobikesList pars() {
         Document doc;
 
         try {
@@ -32,11 +32,11 @@ public class Parcer {
             System.out.println("Ошибка открытия парсинга!!!" + e.toString());
             return null;
         }
-        Motobikes motobikes2 = parsMoto(doc);
-        return motobikes2;
+        MotobikesList motobike2 = parsMoto(doc);
+        return motobike2;
     }
 
-        public Motobikes parsMoto(Document doc) {
+        public MotobikesList parsMoto(Document doc) {
             //Motobikes motobikes1 = null;
             Node rootNode = doc.getFirstChild();
             NodeList rootChilds = rootNode.getChildNodes();
@@ -44,7 +44,7 @@ public class Parcer {
             String mainName;
             int id, age = 0;
             String model = "", vendor = "";
-            Motobikes motobikes1 = null;
+            List <Motobike> motobikes = new ArrayList<>();
             for (int i = 0; i < rootChilds.getLength(); i++) {
                 if (rootChilds.item(i).getNodeType() != Node.ELEMENT_NODE) {
                     continue;
@@ -77,9 +77,13 @@ public class Parcer {
                             throw new IllegalStateException("Unexpected value: " + motobike.item(j).getNodeName());
                     }
                 }
-                motobikes1 = new Motobikes(mainName, id, vendor, model, age);
+                Motobike motobike1 = new Motobike(mainName, id, vendor, model, age);
+                motobikes.add(motobike1);
+
             }
-            return motobikes1;
+            MotobikesList one = null;
+            one.setMotobikes(motobikes);
+            return one;
         }
 
     private Document buildDocument() throws ParserConfigurationException, IOException, SAXException {

@@ -20,8 +20,8 @@ public class Main {
             switch (choice) {
                 case '1':
                     Parcer pars = new Parcer();
-                    MotobikesList motoBikes = pars.pars();
-                    System.out.println(motoBikes.toString());
+                    MotobikesList motobikesList = pars.parsMoto();
+                    System.out.println(motobikesList.toString());
                     break;
                 case '2':
                         System.out.println("Поиск по полям Motobike: ) {");
@@ -46,8 +46,4 @@ public class Main {
                     break;
             }
         }
-
-   // public static Runtime getRuntime() {
-    //    return runtime;
-    //}
 }

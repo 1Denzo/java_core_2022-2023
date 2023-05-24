@@ -1,15 +1,24 @@
 package LR10.Example1XML.ParcerXML;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MotobikesList {
-   private List<Motobike> Motobike;
+    private String MainName;
+    private ArrayList<Motobike> motobikesList;
 
-    public MotobikesList(List<LR10.Example1XML.ParcerXML.Motobike> motobikes) {
+    public MotobikesList(String MainName, ArrayList motobikesList) {
+        this.MainName = MainName;
+        this.motobikesList = motobikesList;
     }
 
-    public void setMotobikes(List motobike) {
-        Motobike = motobike;
+    //public void addMotobike(Motobike motobike) {
+    //    motobikesList.addMotobike(motobike);
+    //}
+
+    @Override
+    public String toString() {
+        return "MotobikesList " + motobikesList +
+                ' ';
     }
 }
+

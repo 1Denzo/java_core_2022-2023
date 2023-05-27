@@ -6,9 +6,7 @@ import org.w3c.dom.Node;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
@@ -17,10 +15,10 @@ import java.util.Scanner;
 
 public class addNode {
 
-        public static void main(String[] args) {
+        public static void main(String[] args) throws TransformerException {
             Parcer parcer = new Parcer();
             Document doc = parcer.buildDocument();
-
+            Node rootNode = doc.getFirstChild();
             Scanner in = new Scanner(System.in);
             String inVend, inModel, inAgeS = null;
             int inAgeI = 0;
@@ -28,13 +26,7 @@ public class addNode {
             LocalDate date = LocalDate.now(); // получаем текущую дату
             int year = date.getYear();
 
-            try {
-                // создаем корневой элемент
-                Element rootElement =
-                        doc.createElement("Motobike");
-                // добавляем корневой элемент в объект Document
-                doc.appendChild(rootElement);
-                System.out.println("Введите количество элементов списка " + rootElement.getTagName()+ ":");
+                System.out.println("Введите количество дополнительных элементов списка " + rootNode.getNodeName() + ":");
                 int elementNumber = in.nextInt();
                 for (int i = 0; i < elementNumber; i++) {
                     k = String.valueOf(i + 1);
@@ -47,7 +39,7 @@ public class addNode {
                     inAgeS = String.valueOf(year-inAgeI);
 
                     // добавляем первый дочерний элемент к корневому
-                    rootElement.appendChild(getMotobike(doc, k, inVend, inModel, inAgeS));
+                    rootNode.appendChild(setMotobike(doc, k, inVend, inModel, inAgeS));
                 }
                 //создаем объект TransformerFactory для печати в консоль
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -65,13 +57,10 @@ public class addNode {
                 transformer.transform(source, file);
                 System.out.println("Создание XML файла закончено");
 
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-        }
 
         // метод для создания нового узла XML-файла
-        private static Node getMotobike(Document doc, String id, String vendor, String model, String age) {
+        private static Node setMotobike(Document doc, String id, String vendor, String model, String age) {
             Element Motobike = doc.createElement("Motobike");
 
             // устанавливаем атрибут id

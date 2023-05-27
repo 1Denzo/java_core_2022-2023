@@ -10,7 +10,7 @@ public class mainMenu {
     char choice;
         //Runtime runtime = getRuntime();
         //Process process = runtime.exec("cls"); //для linux "clear", в виндовс "cls"
-        System.out.println("Парсер XML v.0.2\n:");
+        System.out.println("Парсер XML v.0.3\n:");
         System.out.println("Выберите действие: ");
         System.out.println(" 1. Парсинг в консоль файла XML");
         System.out.println(" 2. Поиск по полям в файле XML");

@@ -58,10 +58,12 @@ public class DOMxmlWriter {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             // для красивого вывода в консоль
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
 
-            //печатаем в консоль или файл
+            //печатаем в консоль и в файл
             StreamResult console = new StreamResult(System.out);
             StreamResult file = new StreamResult(new File("src/LR10/Example1XML/motobike.xml"));
 

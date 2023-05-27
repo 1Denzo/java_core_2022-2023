@@ -68,7 +68,7 @@ public class Parcer {
         return motobikesList;
     }
 
-    private Document buildDocument() {
+    protected Document buildDocument() {
         File file = new File(TAG_PATHFILE);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         Document doc = null;

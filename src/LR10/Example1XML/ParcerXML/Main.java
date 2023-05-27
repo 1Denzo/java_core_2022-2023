@@ -39,7 +39,7 @@ public class Main {
                     System.out.println("1. Удаление узлa в файле XML по номеру id");
                     System.out.println("2. Удаление узлa в файле XML по значению поля Vendor");
                     System.out.println("3. Удаление узлa в файле XML по значению поля Model");
-                    System.out.println("3. Удаление узлa в файле XML по значению поля Age");
+                    System.out.println("4. Удаление узлa в файле XML по значению поля Age");
                     break;
                 case '5':
                     System.out.print("Пока!");

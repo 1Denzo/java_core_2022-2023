@@ -15,10 +15,13 @@ public class MotobikesList {
     //    motobikesList.addMotobike(motobike);
     //}
 
+
     @Override
     public String toString() {
-        return "MotobikesList " + motobikesList +
-                ' ';
+        return "MotobikesList{" +
+                "MainName='" + MainName + '\'' +
+                ", motobikesList=" + motobikesList +
+                '}';
     }
 }
 

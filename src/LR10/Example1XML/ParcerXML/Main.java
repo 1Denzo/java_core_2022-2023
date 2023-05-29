@@ -20,8 +20,9 @@ public class Main {
             switch (choice) {
                 case '1':
                     Parcer pars = new Parcer();
-                    MotobikesList motobikesList = pars.parsMoto();
-                    System.out.println(motobikesList.toString());
+                    MotobikesList motobikesList = new MotobikesList(pars.mainName(pars.buildDocument()), pars.parsMoto());
+                   // System.out.println(motobikesList.toString());
+                    System.out.println(pars.mainName(pars.buildDocument()));
                     break;
                 case '2':
                         System.out.println("Поиск по полям Motobike: ) {");
@@ -29,6 +30,7 @@ public class Main {
                         System.out.println("2. Поиск по полю Model ");
                         System.out.println("3. Поиск по полю Age ");
                         System.out.println("4. Исходное меню");
+
                     break;
                 case '3':
                     System.out.println("Добавление узла в файл XML: ");

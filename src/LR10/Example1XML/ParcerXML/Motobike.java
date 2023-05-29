@@ -8,6 +8,28 @@ public class Motobike {
     private String model;
     private int age;
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        String idS = Integer.toString(id);
+        return idS;
+    }
+
+    public String getVendor() {
+        return vendor;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getAge() {
+        String ageS = Integer.toString(age);
+        return ageS;
+    }
+
     public Motobike(int id, String vendor, String model, int age) {
         this.id = id;
         this.vendor = vendor;
@@ -22,14 +44,15 @@ public class Motobike {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return  "{id=" + id +
+    public String toString(int id) {
+        return "Motobike{" +
+                "id=" + this.id +
                 ", vendor='" + vendor + '\'' +
                 ", model='" + model + '\'' +
                 ", age=" + age +
-                '}';
+                '}' + "\n";
     }
+}
 
 
 
@@ -39,8 +62,3 @@ public class Motobike {
   //      this.age = age;
   //  }
 
-
-    public void setId(int id) {
-        this.id = id;
-    }
-}

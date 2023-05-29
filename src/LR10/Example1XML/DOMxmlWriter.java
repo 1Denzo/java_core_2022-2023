@@ -31,8 +31,7 @@ public class DOMxmlWriter {
         try {
             builder = factory.newDocumentBuilder();
 
-            // создаем пустой объект Document, в котором будем
-            // создавать наш xml-файл
+            // создаем пустой объект Document, в котором будем создавать xml-файл
             Document doc = builder.newDocument();
             // создаем корневой элемент
             Element rootElement =

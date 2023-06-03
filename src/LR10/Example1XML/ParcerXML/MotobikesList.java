@@ -11,17 +11,15 @@ public class MotobikesList {
         this.motobikesList = motobikesList;
     }
 
-    //public void addMotobike(Motobike motobike) {
+    @Override
+    public String toString() {
+        return
+                "MainName='" + MainName + '\'' +
+                ", motobikesList=" + motobikesList;
+    }
+//public void addMotobike(Motobike motobike) {
     //    motobikesList.addMotobike(motobike);
     //}
 
-
-    @Override
-    public String toString() {
-        return "MotobikesList{" +
-                "MainName='" + MainName + '\'' +
-                ", motobikesList=" + motobikesList +
-                '}';
-    }
 }
 

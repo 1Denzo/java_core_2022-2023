@@ -12,12 +12,12 @@ import java.util.ArrayList;
 
 public class Parcer {
 
-    private static final String TAG_PATHFILE = "C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1XML\\motobike.xml";
+    private static final String TAG_PATHFILE = "C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1XML\\ParcerXML\\MotobikeList.xml";
 
     private static final String TAG_VENDOR = "Vendor";
     private static final String TAG_ID = "id";
     private static final String TAG_MODEL = "Model";
-    private static final String TAG_AGE = "age";
+    private static final String TAG_AGE = "Age";
 
     public ArrayList<Motobike>
     parsMoto() {

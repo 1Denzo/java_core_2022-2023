@@ -80,27 +80,22 @@
         <Model>Gear_UR</Model>
         <Age>1</Age>
     </Motobike>
-    <Motobike id="18">
+    <Motobike id="17">
         <Vendor>Урал</Vendor>
         <Model>Урал_CT</Model>
         <Age>3</Age>
     </Motobike>
-    <Motobike id="16">
+    <Motobike id="18">
         <Vendor>Урал</Vendor>
         <Model>M67-36</Model>
         <Age>40</Age>
     </Motobike>
-    <Motobike id="17">
+    <Motobike id="19">
         <Vendor>Урал</Vendor>
         <Model>ИМЗ-8.1238_Волк</Model>
         <Age>8</Age>
     </Motobike>
-    <Motobike id="18">
-        <Vendor>delic</Vendor>
-        <Model>del2</Model>
-        <Age>1</Age>
-    </Motobike>
-    <Motobike id="19">
+    <Motobike id="20">
         <Vendor>Урал</Vendor>
         <Model>Урал_Соло-ST</Model>
         <Age>4</Age>

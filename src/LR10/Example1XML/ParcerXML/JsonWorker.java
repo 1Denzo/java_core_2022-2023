@@ -1,11 +1,11 @@
-package LR10.Example2JSON;
+package LR10.Example1XML.ParcerXML;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import java.io.FileWriter;
 
-public class JsonCreator {
-    public static void main(String[] args) {
+public class JsonWorker {
+    public void JsonCreater(MotobikesList motobikesList) {
         JSONObject library = new JSONObject();
         JSONArray books = new JSONArray();
 
@@ -25,10 +25,10 @@ public class JsonCreator {
         library.put("books", books);
 
         try (FileWriter file = new FileWriter("src/LR10/Example2JSON/example-json.json")){
-          file.write( library.toJSONString());
-          System.out.println("Json файл успешно создан!");
+            file.write( library.toJSONString());
+            System.out.println("Json файл успешно создан!");
         } catch (Exception e){
-          e.printStackTrace();
+            e.printStackTrace();
+        }
     }
-}
 }

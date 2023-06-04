@@ -1,32 +1,32 @@
 package LR10.Example1XML.ParcerXML;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 
+import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
+import javax.xml.parsers.ParserConfigurationException;
 import java.util.ArrayList;
 
 
 public class Parcer {
-
-    private static final String TAG_PATHFILE = "C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1XML\\ParcerXML\\MotobikeList.xml";
-
     private static final String TAG_VENDOR = "Vendor";
     private static final String TAG_ID = "id";
     private static final String TAG_MODEL = "Model";
     private static final String TAG_AGE = "Age";
+    private static final String TAG_MOTO = "Motobike";
 
-    public ArrayList<Motobike>
+    public MotobikesList
     parsMoto() {
-        Document doc = buildDocument();
+        //Получение Document при помощи метода класса FileWorker из исходного файла
+        FileWorker fileWorker = new FileWorker();
+        Document doc = fileWorker.buildDocument();
+        String mainName = fileWorker.mainName(doc);
         Node rootNode = doc.getFirstChild();
         NodeList rootChilds = rootNode.getChildNodes();
         int id, age = 0;
         String model = "", vendor = "";
         ArrayList<Motobike> bikelist = new ArrayList<>();
+        //Парсинг doc, создание Motobike и ArrayList<Motobike>
         for (int i = 0; i < rootChilds.getLength(); i++) {
             if (rootChilds.item(i).getNodeType() != Node.ELEMENT_NODE) {
                 continue;
@@ -56,35 +56,38 @@ public class Parcer {
                 }
             }
             Motobike motobike1 = new Motobike(id, vendor, model, age);
-            //motobikesList.addMotobike(motobike1);
             bikelist.add(motobike1);
-
         }
-        return bikelist;
+        MotobikesList motobikesList = new MotobikesList(mainName, bikelist);
+        return motobikesList;
     }
+    public Document docCreator(MotobikesList motobikesList1) throws ParserConfigurationException {
+        String mainName1 = motobikesList1.getMainName();
+        ArrayList<Motobike> motobikeArrayList = motobikesList1.getMotobikesList();
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        Document doc2 = docBuilder.newDocument();
+        Element rootElement = doc2.createElement(mainName1);
+        doc2.appendChild(rootElement);
+        for (int j = 0; j < motobikeArrayList.size(); j++) {
+            //Добавление мотоциклов в объект doc2
+            Element motobike = doc2.createElement(TAG_MOTO);
+            motobike.setAttribute(TAG_ID, motobikeArrayList.get(j).getId());
+            rootElement.appendChild(motobike);
 
-    protected Document buildDocument() {
-        File file = new File(TAG_PATHFILE);
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        Document doc = null;
-        try {
-            doc = dbf.newDocumentBuilder().parse(file);
-        } catch (Exception e) {
-            System.out.println("Ошибка открытия парсинга!!!" + e.toString());
+            Element Vendor = doc2.createElement(TAG_VENDOR);
+            Vendor.appendChild(doc2.createTextNode(motobikeArrayList.get(j).getVendor()));
+            motobike.appendChild(Vendor);
+
+            Element Model = doc2.createElement(TAG_MODEL);
+            Model.appendChild(doc2.createTextNode(motobikeArrayList.get(j).getModel()));
+            motobike.appendChild(Model);
+
+            Element Age = doc2.createElement(TAG_AGE);
+            Age.appendChild(doc2.createTextNode(motobikeArrayList.get(j).getAge()));
+            motobike.appendChild(Age);
         }
-        return doc;
-    }
-    protected String mainName(Document doc1) {
-        doc1 = buildDocument();
-        String mainName = doc1.getFirstChild().getNodeName();
-        //System.out.println("FirtsChild " + mainName.toString());
-        return mainName;
-    }
-    protected String nodeName(Document doc1) {
-        doc1 = buildDocument();
-        String nodeName = doc1.getFirstChild().getChildNodes().item(0).getNodeName();
-        //System.out.println("FirtsChild " + mainName.toString());
-        return nodeName;
+        return doc2;
     }
     }
 

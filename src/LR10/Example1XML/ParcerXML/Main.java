@@ -1,16 +1,11 @@
 package LR10.Example1XML.ParcerXML;
 
-
-import com.graphbuilder.math.AddNode;
 import org.w3c.dom.Document;
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Main {
-    private static Runtime runtime;
 
     //Использовать оператор цикла do-while для выбора пункта меню
     public static void main(String args[])
@@ -22,9 +17,7 @@ public class Main {
             System.out.println("\n");
             switch (choice) {
                 case "1":
-                    Parcer pars = new Parcer();
-                    MotobikesList motobikesList = new MotobikesList(pars.mainName(pars.buildDocument()), pars.parsMoto());
-                    System.out.println(motobikesList.toString());
+                    menu.One();
                     //System.out.println(pars.mainName(pars.buildDocument()));
                     break;
                 case "2":
@@ -37,29 +30,24 @@ public class Main {
                     break;
                 case "3":
                     System.out.println("Добавление узла в файл XML: ");
-                    addNode addNode = new addNode();
                     Parcer parcer = new Parcer();
-                    ArrayList<Motobike> bikeList = parcer.parsMoto();
-                    Document doc = parcer.buildDocument();
-                    String mainName = parcer.mainName(doc);
-                    ArrayList<Motobike> bikeListPlus = addNode.addnode(mainName, bikeList);
-                    addNode.fileWriter(mainName, bikeListPlus);
+                    addNode addNode = new addNode();
+                    FileWorker fileWorker = new FileWorker();
+                    MotobikesList motobikesList1 = addNode.addnode();
+                    Document doc = parcer.docCreator(motobikesList1);
+                    fileWorker.fileWriter(doc);
                     break;
                 case "4":
                     System.out.println("Удаление узлa в файле XML по номеру id");
                     Parcer parcer1 = new Parcer();
+                    FileWorker fileWorker1 = new FileWorker();
+                    MotobikesList motobikesList3 = parcer1.parsMoto();
                     delNode delNode = new delNode();
-                    addNode addNode1 = new addNode();
-                    ArrayList<Motobike> bikeList1 = parcer1.parsMoto();
-                    Document doc1 = parcer1.buildDocument();
-                    String mainName1 = parcer1.mainName(doc1);
-                    addNode1.fileWriter(mainName1, delNode.delNode(mainName1, bikeList1));
-                    break;
-                default:
-                    System.out.println("Выберите один из пунктов меню, или нажмите <5> " +
-                            "для выхода из программы\n");
+                    MotobikesList motobikesList4 = delNode.delNode(motobikesList3);
+                    Document doc1 = parcer1.docCreator(motobikesList4);
+                    fileWorker1.fileWriter(doc1);
                     break;
             }
-        } while (choice != "5");
+        } while (!choice.isEmpty());
     }
 }

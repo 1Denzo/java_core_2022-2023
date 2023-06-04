@@ -1,7 +1,6 @@
 package LR8.Task2;
 
 import java.io.*;
-import static java.lang.System.out;
 
 public class ReWriteFile {
     public static void main(String[] args) throws IOException {

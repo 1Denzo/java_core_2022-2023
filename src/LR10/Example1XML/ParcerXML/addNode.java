@@ -11,7 +11,7 @@ public class addNode {
 
     public MotobikesList addnode() throws ParserConfigurationException {
         Parcer parcer = new Parcer();
-        MotobikesList motobikesList = parcer.parsMoto();
+        MotobikesList motobikesList = parcer.parsMotoXML();
         String mainName = motobikesList.getMainName();
         Scanner in = new Scanner(System.in);
         String inVend, inModel = null;

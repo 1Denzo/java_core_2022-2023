@@ -4,13 +4,18 @@ import org.w3c.dom.Document;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
 
-    //Использовать оператор цикла do-while для выбора пункта меню
+    //Используем оператор цикла do-while для бесконечного цикла выбора пункта меню
     public static void main(String args[])
             throws IOException, ParserConfigurationException, TransformerException {
         String choice;
+        //Классы наиболее часто используемые в теле меню вынесены в заглавие
+        Parcer parcer = new Parcer();
+        FileWorker fileWorker = new FileWorker();
+        //Тело меню
         do {
             mainMenu menu = new mainMenu();
             choice = menu.Menu();
@@ -21,32 +26,30 @@ public class Main {
                     //System.out.println(pars.mainName(pars.buildDocument()));
                     break;
                 case "2":
-                    System.out.println("Поиск по полям Motobike: ) {");
-                    System.out.println("1. Поиск по полю Vendor ");
-                    System.out.println("2. Поиск по полю Model ");
-                    System.out.println("3. Поиск по полю Age ");
-                    System.out.println("4. Исходное меню");
-
-                    break;
+                    short[] param = menu.Two2();
+                    System.out.println("Вы выбрали: " + Arrays.toString(param));
+                   break;
                 case "3":
+                    System.out.println("Измененение узла в файл XML: ");
+                   // menu.Two();
+                    break;
+                case "4":
                     System.out.println("Добавление узла в файл XML: ");
-                    Parcer parcer = new Parcer();
                     addNode addNode = new addNode();
-                    FileWorker fileWorker = new FileWorker();
                     MotobikesList motobikesList1 = addNode.addnode();
                     Document doc = parcer.docCreator(motobikesList1);
                     fileWorker.fileWriter(doc);
                     break;
-                case "4":
+                case "5":
                     System.out.println("Удаление узлa в файле XML по номеру id");
-                    Parcer parcer1 = new Parcer();
-                    FileWorker fileWorker1 = new FileWorker();
-                    MotobikesList motobikesList3 = parcer1.parsMoto();
+                    MotobikesList motobikesList3 = parcer.parsMotoXML();
                     delNode delNode = new delNode();
                     MotobikesList motobikesList4 = delNode.delNode(motobikesList3);
-                    Document doc1 = parcer1.docCreator(motobikesList4);
-                    fileWorker1.fileWriter(doc1);
+                    Document doc1 = parcer.docCreator(motobikesList4);
+                    fileWorker.fileWriter(doc1);
                     break;
+                /*case "5":
+                    parcer.JsonCreater(parcer.parsMotoXML());*/
             }
         } while (!choice.isEmpty());
     }

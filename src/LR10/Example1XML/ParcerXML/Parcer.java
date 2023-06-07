@@ -1,12 +1,15 @@
 package LR10.Example1XML.ParcerXML;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.w3c.dom.*;
-
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.util.ArrayList;
-
 
 public class Parcer {
     private static final String TAG_VENDOR = "Vendor";
@@ -15,8 +18,7 @@ public class Parcer {
     private static final String TAG_AGE = "Age";
     private static final String TAG_MOTO = "Motobike";
 
-    public MotobikesList
-    parsMoto() {
+    public MotobikesList parsMotoXML() {
         //Получение Document при помощи метода класса FileWorker из исходного файла
         FileWorker fileWorker = new FileWorker();
         Document doc = fileWorker.buildDocument();
@@ -61,6 +63,7 @@ public class Parcer {
         MotobikesList motobikesList = new MotobikesList(mainName, bikelist);
         return motobikesList;
     }
+    //Метод создает Document из масива MotobikeList для дальнейшего сохранения в файл
     public Document docCreator(MotobikesList motobikesList1) throws ParserConfigurationException {
         String mainName1 = motobikesList1.getMainName();
         ArrayList<Motobike> motobikeArrayList = motobikesList1.getMotobikesList();
@@ -70,7 +73,7 @@ public class Parcer {
         Element rootElement = doc2.createElement(mainName1);
         doc2.appendChild(rootElement);
         for (int j = 0; j < motobikeArrayList.size(); j++) {
-            //Добавление мотоциклов в объект doc2
+            //Транзит параметров мотоциклов из обьекта motobike в объект doc2
             Element motobike = doc2.createElement(TAG_MOTO);
             motobike.setAttribute(TAG_ID, motobikeArrayList.get(j).getId());
             rootElement.appendChild(motobike);
@@ -89,6 +92,38 @@ public class Parcer {
         }
         return doc2;
     }
+        public void JsonCreater(MotobikesList motobikesList) {
+            ArrayList<Motobike> motobikeArrayList = motobikesList.getMotobikesList();
+            String mainName = motobikesList.getMainName();
+            JSONObject bikeArray = new JSONObject();
+            JSONArray motobikes = new JSONArray();
+            motobikes.addAll(motobikeArrayList);
+            bikeArray.put(mainName, motobikes);
+            try (FileWriter file = new FileWriter("C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1XML\\ParcerXML\\moto1.json")){
+                file.write( bikeArray.toJSONString());
+                System.out.println("Json файл успешно создан!");
+            } catch (Exception e){
+                e.printStackTrace();
+            }}
+            public  void JsonPars(MotobikesList motobikesList) {
+                try {
+                    JSONParser parser = new JSONParser();
+                    Object obj = parser.parse(new FileReader("C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example2JSON\\moto.json"));
+                    JSONObject jsonObject = (JSONObject) obj;
+                    System.out.println("Корневой элемент: "
+                            + jsonObject.keySet().iterator().next());
+                    JSONArray jsonArray = (JSONArray) jsonObject.get("Motobikes");
+                    for (Object o : jsonArray) {
+                        JSONObject bike1 = (JSONObject) o;
+                        System.out.println("\nТекущий элемент: bike");
+                        System.out.println("id: " + bike1.get("id"));
+                        System.out.println("Vendor:" + bike1.get("Vendor"));
+                        System.out.println("Model:" + bike1.get("Model"));
+                        System.out.println("Age:" + bike1.get("Age"));
+                    }
+                }catch ( Exception e) {
+                    e.printStackTrace();
+                }}
     }
 
 

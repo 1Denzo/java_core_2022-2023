@@ -6,26 +6,25 @@ import java.io.FileWriter;
 
 public class JsonCreator {
     public static void main(String[] args) {
-        JSONObject library = new JSONObject();
-        JSONArray books = new JSONArray();
+        JSONObject bikeArray = new JSONObject();
+        JSONArray motobikes = new JSONArray();
+        JSONObject bike1 = new JSONObject();
+        bike1.put("Vendor", "Kawasaki");
+        bike1.put("Model", "KLE250");
+        bike1.put("Age", 20);
 
-        JSONObject book1 = new JSONObject();
-        book1.put("title", "Война и мир");
-        book1.put("author", "Лев Толстой");
-        book1.put("year", 1869);
+        JSONObject bike2 = new JSONObject();
+        bike2.put("Vendor", "Honda");
+        bike2.put("Model", "TransAlp");
+        bike2.put("Age", 15);
 
-        JSONObject book2 = new JSONObject();
-        book2.put("title", "Мастер и Маргарита");
-        book2.put("author", "Михаил Булгаков");
-        book2.put("year", 1967);
+        motobikes.add(bike1);
+        motobikes.add(bike2);
 
-        books.add(book1);
-        books.add(book2);
+        bikeArray.put("Motobikes", motobikes);
 
-        library.put("books", books);
-
-        try (FileWriter file = new FileWriter("src/LR10/Example2JSON/example-json.json")){
-          file.write( library.toJSONString());
+        try (FileWriter file = new FileWriter("src/LR10/Example2JSON/moto.json")){
+          file.write( bikeArray.toJSONString());
           System.out.println("Json файл успешно создан!");
         } catch (Exception e){
           e.printStackTrace();

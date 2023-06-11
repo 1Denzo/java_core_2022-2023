@@ -1,4 +1,4 @@
-package LR10.Example1XML.ParcerXML;
+package coursework1;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.time.LocalDate;

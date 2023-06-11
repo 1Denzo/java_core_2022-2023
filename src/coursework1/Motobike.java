@@ -1,18 +1,18 @@
-package LR10.Example1XML.ParcerXML;
+package coursework1;
 public class Motobike {
-    private String id;
+    private int id;
     private String vendor;
     private String model;
-    private String age;
+    private int age;
     public void setId(int id) {
-        this.id = Integer.toString(id);
+        this.id = id;
     }
     public String getId() {
-        String idS = this.id;
+        String idS = Integer.toString(id);
         return idS;
     }
         public Short getIdI() {
-            Short idI = Short.decode(this.id);
+            Short idI = (short)this.id;
             return idI;
     }
     public String getVendor() {
@@ -22,33 +22,34 @@ public class Motobike {
         return model;
     }
     public String getAge() {
-        String ageS = this.age;
+        String ageS = Integer.toString(age);
         return ageS;
     }
     public Short getAgeShort() {
-        Short ageShort = Short.valueOf(this.age);
+        Short ageShort = (short)this.age;
         return ageShort;
     }
     public Motobike(int id, String vendor, String model, int age) {
-        this.id = Integer.toString(id);
+        this.id = id;
         this.vendor = vendor;
         this.model = model;
-        this.age = Integer.toString(age);
+        this.age = age;
     }
     public void setMoto(int id, String vendor, String model, int age) {
-        this.id = Integer.toString(id);
+        this.id = id;
         this.vendor = vendor;
         this.model = model;
-        this.age = Integer.toString(age);
+        this.age = age;
     }
 
     @Override
     public String toString() {
-        return "{\"id\":" + "\"" + id + "\"" +
-                ",\"vendor\":" + "\"" + vendor + "\"" +
-                ",\"model\":" + "\"" + model + "\"" +
-                ",\"age\":" + "\"" +  age + "\"" +
-                "}";
+        return "Motobike{" +
+                "id=" + id +
+                ", vendor='" + vendor + '\'' +
+                ", model='" + model + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
 

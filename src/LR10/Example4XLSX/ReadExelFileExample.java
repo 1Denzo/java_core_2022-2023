@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ReadExelFileExample {
     public static void main(String[] args) throws IOException {
         // Открываем файл Exel для чтения
-        String filePath = "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example4XLSX\\exampleExel.xlsx";
+        String filePath = "C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example4XLSX\\exampleExel.xlsx";
         FileInputStream inputStream = new FileInputStream(filePath);
 
         // Создаем экземпляр книги Exel из файла

@@ -15,16 +15,16 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import java.time.LocalDate;
-// https://javadevblog.com/kak-sozdat-xml-fajl-na-java-ispol-zuem-dom-parser.html
+// https://javadevblog.com/kak-sozdat-xml-fajl-na-java-ispol-zuem-dom-parser.html -- Источник вдохновления для кода
 public class DOMxmlWriter {
 
     public static void main(String[] args) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder;
         Scanner in = new Scanner(System.in);
-        String inVend, inModel, inAgeS = null;
-        int inAgeI = 0;
-        String k = null;
+        String inVend, inModel, inAgeS;
+        int inAgeI;
+        String k;
         LocalDate date = LocalDate.now(); // получаем текущую дату
         int year = date.getYear();
 
@@ -84,19 +84,19 @@ public class DOMxmlWriter {
         Motobike.setAttribute("id", id);
 
         // создаем элемент Vendor
-        Motobike.appendChild(getMotobikeElements(doc, Motobike, "Vendor", vendor));
+        Motobike.appendChild(getMotobikeElements(doc, "Vendor", vendor));
 
         // создаем элемент Model
-        Motobike.appendChild(getMotobikeElements(doc, Motobike, "Model", model));
+        Motobike.appendChild(getMotobikeElements(doc, "Model", model));
 
         // создаем элемент age
-        Motobike.appendChild(getMotobikeElements(doc, Motobike, "age", age));
+        Motobike.appendChild(getMotobikeElements(doc, "age", age));
         return Motobike;
     }
 
 
     // утилитный метод для создания нового узла XML-файла
-    private static Node getMotobikeElements(Document doc, Element element, String name, String value) {
+    private static Node getMotobikeElements(Document doc, String name, String value) {
         Element node = doc.createElement(name);
         node.appendChild(doc.createTextNode(value));
         return node;

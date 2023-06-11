@@ -1,6 +1,7 @@
-package LR10.Example1XML.ParcerXML;
+package coursework1;
 
 import org.w3c.dom.Document;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.dom.DOMSource;
@@ -53,7 +54,7 @@ public class FileWorker {
             transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
             transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            javax.xml.transform.dom.DOMSource source = new DOMSource(doc2);
+            DOMSource source = new DOMSource(doc2);
             javax.xml.transform.stream.StreamResult result =
                     new javax.xml.transform.stream.StreamResult(new File(TAG_PATHFILE));
             transformer.transform(source, result);
@@ -80,4 +81,5 @@ public class FileWorker {
             System.out.println("" + e);
         }
     }
+
 }

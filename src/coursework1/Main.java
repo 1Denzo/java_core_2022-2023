@@ -1,10 +1,10 @@
-package LR10.Example1XML.ParcerXML;
+package coursework1;
 
 import org.w3c.dom.Document;
+
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Main {
 

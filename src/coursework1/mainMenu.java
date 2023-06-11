@@ -1,4 +1,4 @@
-package LR10.Example1XML.ParcerXML;
+package coursework1;
 
 import java.io.IOException;
 import java.util.Scanner;

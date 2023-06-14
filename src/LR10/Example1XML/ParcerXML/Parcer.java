@@ -1,10 +1,7 @@
 package LR10.Example1XML.ParcerXML;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.w3c.dom.*;
-import java.io.FileReader;
+
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,7 +18,7 @@ public class Parcer {
         //Получение Document при помощи метода класса FileWorker из исходного файла
         FileWorker fileWorker = new FileWorker();
         Document doc = fileWorker.buildDocument();
-        String mainName = fileWorker.mainName(doc);
+        String mainName = fileWorker.mainName();
         Node rootNode = doc.getFirstChild();
         NodeList rootChilds = rootNode.getChildNodes();
         int id, age = 0;
@@ -33,7 +30,7 @@ public class Parcer {
                 continue;
             }
             NamedNodeMap attributes = rootChilds.item(i).getAttributes();  // атрибуты дочернего узла
-            id = Integer.valueOf(attributes.getNamedItem(TAG_ID).getNodeValue());// получение и преобразование в int значение атрибута
+            id = Integer.parseInt(attributes.getNamedItem(TAG_ID).getNodeValue());// получение и преобразование в int значение атрибута
             NodeList motobike = rootChilds.item(i).getChildNodes();
             for (int j = 0; j < motobike.getLength(); j++) {
                 if (motobike.item(j).getNodeType() != Node.ELEMENT_NODE) {
@@ -49,7 +46,7 @@ public class Parcer {
                         break;
                     }
                     case TAG_AGE: {
-                        age = Integer.valueOf(motobike.item(j).getTextContent());
+                        age = Integer.parseInt(motobike.item(j).getTextContent());
                         break;
                     }
                     default:
@@ -59,8 +56,7 @@ public class Parcer {
             Motobike motobike1 = new Motobike(id, vendor, model, age);
             bikelist.add(motobike1);
         }
-        MotobikesList motobikesList = new MotobikesList(mainName, bikelist);
-        return motobikesList;
+        return new MotobikesList(mainName, bikelist);
     }
     //Метод создает Document из масива MotobikeList для дальнейшего сохранения в файл
     public Document docCreator(MotobikesList motobikesList1) throws ParserConfigurationException {
@@ -71,22 +67,22 @@ public class Parcer {
         Document doc2 = docBuilder.newDocument();
         Element rootElement = doc2.createElement(mainName1);
         doc2.appendChild(rootElement);
-        for (int j = 0; j < motobikeArrayList.size(); j++) {
+        for (Motobike value : motobikeArrayList) {
             //Транзит параметров мотоциклов из обьекта motobike в объект doc2
             Element motobike = doc2.createElement(TAG_MOTO);
-            motobike.setAttribute(TAG_ID, motobikeArrayList.get(j).getId());
+            motobike.setAttribute(TAG_ID, value.getId());
             rootElement.appendChild(motobike);
 
             Element Vendor = doc2.createElement(TAG_VENDOR);
-            Vendor.appendChild(doc2.createTextNode(motobikeArrayList.get(j).getVendor()));
+            Vendor.appendChild(doc2.createTextNode(value.getVendor()));
             motobike.appendChild(Vendor);
 
             Element Model = doc2.createElement(TAG_MODEL);
-            Model.appendChild(doc2.createTextNode(motobikeArrayList.get(j).getModel()));
+            Model.appendChild(doc2.createTextNode(value.getModel()));
             motobike.appendChild(Model);
 
             Element Age = doc2.createElement(TAG_AGE);
-            Age.appendChild(doc2.createTextNode(motobikeArrayList.get(j).getAge()));
+            Age.appendChild(doc2.createTextNode(value.getAge()));
             motobike.appendChild(Age);
         }
         return doc2;

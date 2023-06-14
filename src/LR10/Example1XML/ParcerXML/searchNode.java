@@ -8,8 +8,7 @@ public class searchNode {
     public String searchString(String searchName) {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите значение параметра " + searchName);
-        String search = in.nextLine();
-        return search;
+        return in.nextLine();
     }
 
     public MotobikesList findLoopString(String twomenu, String searchname) {
@@ -20,22 +19,21 @@ public class searchNode {
         ArrayList<Motobike> searchList = new ArrayList<>();
         switch (twomenu) {
             case "Vendor":
-                for (int i = 0; i < parentList.size(); i++) {
-                    if (parentList.get(i).getVendor().equals(searchname)) {
-                        searchList.add(parentList.get(i));
+                for (Motobike motobike : parentList) {
+                    if (motobike.getVendor().equals(searchname)) {
+                        searchList.add(motobike);
                     }
                 }
                 break;
             case "Model":
-                for (int i = 0; i < parentList.size(); i++) {
-                    if (parentList.get(i).getModel().equals(searchname)) {
-                        searchList.add(parentList.get(i));
+                for (Motobike motobike : parentList) {
+                    if (motobike.getModel().equals(searchname)) {
+                        searchList.add(motobike);
                     }
                 }
                 break;
         }
-        MotobikesList motobikesList1 = new MotobikesList(mainName, searchList);
-        return motobikesList1;
+        return new MotobikesList(mainName, searchList);
     }
     public MotobikesList findLoopNum(String twomenu, short [] param) {
         Parcer pars = new Parcer();
@@ -46,17 +44,17 @@ public class searchNode {
         switch (twomenu) {
             case "id":
                 if (param[1] == 0) {
-                    for (int i = 0; i < parentList.size(); i++) {
-                        if (parentList.get(i).getIdI() == param[0]) {
-                            searchList.add(parentList.get(i));
+                    for (Motobike motobike : parentList) {
+                        if (motobike.getIdI() == param[0]) {
+                            searchList.add(motobike);
                         }
                     }
                 }
                     else {
-                    for (int j = 0; j < parentList.size(); j++) {
-                        if (parentList.get(j).getIdI() >= param[0]) {
-                            if (parentList.get(j).getIdI() <= param[1]) {
-                                searchList.add(parentList.get(j));
+                    for (Motobike motobike : parentList) {
+                        if (motobike.getIdI() >= param[0]) {
+                            if (motobike.getIdI() <= param[1]) {
+                                searchList.add(motobike);
                             }
                         }
                     }
@@ -64,25 +62,24 @@ public class searchNode {
                 break;
             case "Age":
                 if (param[1] == 0) {
-                    for (int i = 0; i < parentList.size(); i++) {
-                        if (parentList.get(i).getAgeShort() == param[0]) {
-                            searchList.add(parentList.get(i));
+                    for (Motobike motobike : parentList) {
+                        if (motobike.getAgeShort() == param[0]) {
+                            searchList.add(motobike);
                         }
                     }
                 }
                 else {
-                    for (int j = 0; j < parentList.size(); j++) {
-                        if (parentList.get(j).getAgeShort() >= param[0]) {
-                            if (parentList.get(j).getIdI() <= param[1]) {
-                                searchList.add(parentList.get(j));
+                    for (Motobike motobike : parentList) {
+                        if (motobike.getAgeShort() >= param[0]) {
+                            if (motobike.getIdI() <= param[1]) {
+                                searchList.add(motobike);
                             }
                         }
                     }
                 }
                 break;
         }
-        MotobikesList motobikesList1 = new MotobikesList(mainName, searchList);
-        return motobikesList1;
+        return new MotobikesList(mainName, searchList);
 
 
     }

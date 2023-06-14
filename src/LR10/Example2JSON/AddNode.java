@@ -1,16 +1,19 @@
-package LR10.Example1XML.ParcerXML;
+package LR10.Example2JSON;
 
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class addNode {
-    // Метод для добавления новых нодов в XML файл. Возвращает объект MotobikeList
+public class AddNode {
+    // Метод для добавления новых узлов. Возвращает объект MotobikeList
     // c добавленными элементами motobike и правильным перестроенным атрибутом id
 
-    public MotobikesList addnode() {
-        Parcer parcer = new Parcer();
-        MotobikesList motobikesList = parcer.parsMotoXML();
+    public MotobikesList1 addnode() throws ParseException, IOException {
+        JsonParcer parcer = new JsonParcer();
+        MotobikesList1 motobikesList = parcer.parsJson();
         String mainName = motobikesList.getMainName();
         Scanner in = new Scanner(System.in);
         String inVend, inModel;
@@ -21,7 +24,7 @@ public class addNode {
         int elementNumber = in.nextInt();
         System.out.println("Введите номер индификатора для первого добавляемого элемета списка " + mainName + ":");
         int delimiter = in.nextInt();
-        ArrayList<Motobike> parent = motobikesList.getMotobikesList();
+        ArrayList<Motobike1> parent = motobikesList.getMotobikesList();
         for (int i = 0; i < parent.size(); i++) { //Добавление новых элементов в массив second
             if (i >= (delimiter-1) && i < (delimiter + elementNumber - 1)) {
                 System.out.println("Введите название фирмы-изготовителя мотоцикла " + (i + 1) + ":");
@@ -31,15 +34,15 @@ public class addNode {
                 System.out.println("Введите год выпуска мотоцикла " + (i + 1) + ":");
                 inAgeI = in.nextInt();
                 inAge = (year - inAgeI);
-                Motobike motobike2 = new Motobike((i + 1), inVend, inModel, inAge);
+                Motobike1 motobike2 = new Motobike1(Integer.toString(i + 1), inVend, inModel, Integer.toString(inAge));
                 parent.add(i, motobike2);
             } else {
                 parent.get(i).setId(i + 1); //Устанавливаем правильную нумерацию атрибута id
             }
         }
-        return new MotobikesList(mainName, parent);
+        return new MotobikesList1(mainName, parent);
     }
-}
+        }
 
 
 

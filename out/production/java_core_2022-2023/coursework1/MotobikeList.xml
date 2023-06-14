@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Motobikes>
+    <Motobike id="1">
+        <Vendor>Honda</Vendor>
+        <Model>Africa_Twin</Model>
+        <Age>12</Age>
+    </Motobike>
+    <Motobike id="2">
+        <Vendor>Honda</Vendor>
+        <Model>NC750X</Model>
+        <Age>4</Age>
+    </Motobike>
+    <Motobike id="3">
+        <Vendor>Honda</Vendor>
+        <Model>CFR300_Rally</Model>
+        <Age>3</Age>
+    </Motobike>
+    <Motobike id="4">
+        <Vendor>Honda</Vendor>
+        <Model>CRF250R</Model>
+        <Age>2</Age>
+    </Motobike>
+    <Motobike id="5">
+        <Vendor>Honda</Vendor>
+        <Model>Gold_Wing</Model>
+        <Age>12</Age>
+    </Motobike>
+    <Motobike id="6">
+        <Vendor>Suzuki</Vendor>
+        <Model>GSV-R</Model>
+        <Age>12</Age>
+    </Motobike>
+    <Motobike id="7">
+        <Vendor>Suzuki</Vendor>
+        <Model>SV1000</Model>
+        <Age>15</Age>
+    </Motobike>
+    <Motobike id="8">
+        <Vendor>Suzuki</Vendor>
+        <Model>GSX1300R</Model>
+        <Age>16</Age>
+    </Motobike>
+    <Motobike id="9">
+        <Vendor>Suzuki</Vendor>
+        <Model>GSX600</Model>
+        <Age>13</Age>
+    </Motobike>
+    <Motobike id="10">
+        <Vendor>Suzuki</Vendor>
+        <Model>V-STOR_650_AB1</Model>
+        <Age>1</Age>
+    </Motobike>
+    <Motobike id="11">
+        <Vendor>BMW</Vendor>
+        <Model>G310R</Model>
+        <Age>4</Age>
+    </Motobike>
+    <Motobike id="12">
+        <Vendor>BMW</Vendor>
+        <Model>RmineT</Model>
+        <Age>2</Age>
+    </Motobike>
+    <Motobike id="13">
+        <Vendor>BMW</Vendor>
+        <Model>G310GS</Model>
+        <Age>5</Age>
+    </Motobike>
+    <Motobike id="14">
+        <Vendor>BMW</Vendor>
+        <Model>CE_04</Model>
+        <Age>2</Age>
+    </Motobike>
+    <Motobike id="15">
+        <Vendor>BMW</Vendor>
+        <Model>C400X</Model>
+        <Age>4</Age>
+    </Motobike>
+    <Motobike id="16">
+        <Vendor>Урал</Vendor>
+        <Model>Gear_UR</Model>
+        <Age>1</Age>
+    </Motobike>
+    <Motobike id="17">
+        <Vendor>Урал</Vendor>
+        <Model>Урал_CT</Model>
+        <Age>3</Age>
+    </Motobike>
+    <Motobike id="18">
+        <Vendor>Урал</Vendor>
+        <Model>M67-36</Model>
+        <Age>40</Age>
+    </Motobike>
+    <Motobike id="19">
+        <Vendor>Урал</Vendor>
+        <Model>ИМЗ-8.1238_Волк</Model>
+        <Age>8</Age>
+    </Motobike>
+    <Motobike id="20">
+        <Vendor>Урал</Vendor>
+        <Model>Урал_Соло-ST</Model>
+        <Age>4</Age>
+    </Motobike>
+</Motobikes>

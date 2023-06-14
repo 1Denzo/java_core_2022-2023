@@ -1,15 +1,15 @@
-package LR10.Example1XML.ParcerXML;
+package LR10.Example2JSON;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class delNode {
+public class DelNode {
 
-    protected MotobikesList delNode(MotobikesList motobikesList) {
+    protected MotobikesList1 delNode(MotobikesList1 motobikesList) {
 
         Scanner in = new Scanner(System.in);
         String mainName = motobikesList.getMainName();
-        ArrayList<Motobike> parent = motobikesList.getMotobikesList();
+        ArrayList<Motobike1> parent = motobikesList.getMotobikesList();
         boolean checker = false;
         int idDelNode;
         do {
@@ -22,16 +22,16 @@ public class delNode {
                 System.out.println("Число вне диапазона адресов массива!!! Введите правильное число!");
             }
         }
-        while (!checker) ;
-        for (int i = 0; i < parent.size(); i++) { //удаление нода из массива
-            if (i == (idDelNode - 1)) {
-                parent.remove(i);
-                parent.get(i).setId(i + 1);//
-            } else if (i >= idDelNode) {
-                parent.get(i).setId(i + 1); //Устанавливаем правильную нумерацию атрибута id
+            while (!checker) ;
+            for (int i = 0; i < parent.size(); i++) { //удаление нода из массива
+                if (i == (idDelNode - 1)) {
+                    parent.remove(i);
+                    parent.get(i).setId(i + 1);//
+                } else if (i >= idDelNode) {
+                    parent.get(i).setId(i + 1); //Устанавливаем правильную нумерацию атрибута id
+                }
             }
-        }
-        MotobikesList motobikesList2 = new MotobikesList(mainName, parent);
+        MotobikesList1 motobikesList2 = new MotobikesList1(mainName, parent);
         System.out.println("Элемент " + idDelNode + " удален.");
         return motobikesList2;
     }

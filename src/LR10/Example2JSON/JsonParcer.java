@@ -1,12 +1,10 @@
 package LR10.Example2JSON;
 
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
-import coursework1.MotobikesList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 
@@ -16,27 +14,25 @@ public class JsonParcer {
     private static final String TAG_ID = "id";
     private static final String TAG_MODEL = "model";
     private static final String TAG_AGE = "age";
-    private static final String TAG_MOTO = "Motobike";
+    private static final String TAG_MOTO = "Motobikes";
 
-    public static void main(String[] args) {
-        try {
-            JSONParser parser = new JSONParser();
-            Object obj = parser.parse(new FileReader("C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example2JSON\\moto.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-            System.out.println("Корневой элемент: "
-                    + jsonObject.keySet().iterator().next());
-            JSONArray jsonArray = (JSONArray) jsonObject.get("Motobikes");
+    public MotobikesList1 parsJson() throws ParseException, IOException {
+        ArrayList<Motobike1> motobike1ArrayList = new ArrayList<>();
+        FileWorker fileWorker = new FileWorker();
+        Object obj = fileWorker.fileReader();
+        JSONObject jsonObject = (JSONObject) obj;
+        String mainName;
+        mainName = jsonObject.keySet().iterator().next().toString();
+        JSONArray jsonArray = (JSONArray) jsonObject.get(TAG_MOTO);
             for (Object o : jsonArray) {
                 JSONObject bike1 = (JSONObject) o;
-                System.out.println("\nТекущий элемент: " + TAG_MOTO);
-                System.out.println(TAG_ID + ": " + bike1.get(TAG_ID));
-                System.out.println(TAG_VENDOR + ": " + bike1.get(TAG_VENDOR));
-                System.out.println(TAG_MODEL + ": " + bike1.get(TAG_MODEL));
-                System.out.println(TAG_AGE + ": " + bike1.get(TAG_AGE));
+                Motobike1 motobike1 = new Motobike1(bike1.get(TAG_ID).toString(), bike1.get(TAG_VENDOR).toString(),
+                        bike1.get(TAG_MODEL).toString(), bike1.get(TAG_AGE).toString());
+                motobike1ArrayList.add(motobike1);
             }
-        }catch ( Exception e) {
-            e.printStackTrace();
-        }}
+        return new MotobikesList1(mainName, motobike1ArrayList);
+    }
+}
     /*public static void main(String[] args) throws ParseException {
         //public MotobikesList JsonPars(Object obj) {
         FileWorker fileWorker = new FileWorker();
@@ -59,7 +55,6 @@ public class JsonParcer {
             //return null;
         }
     }*/
-}
 
 /*
 import org.json.simple.JSONArray;

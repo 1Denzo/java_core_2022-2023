@@ -4,12 +4,11 @@ import org.w3c.dom.Document;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Main {
 
     //Используем оператор цикла do-while для бесконечного цикла выбора пункта меню
-    public static void main(String args[])
+    public static void main(String[] args)
             throws IOException, ParserConfigurationException, TransformerException {
         String choice;
         //Классы наиболее часто используемые в теле меню вынесены в заглавие
@@ -27,9 +26,9 @@ public class Main {
                     break;
                 case "2":
                     String twomenu = menu.Two1();
-                    short[] param = null;
+                    short[] param;
                     searchNode searchClass = new searchNode();
-                    String searchString = null;
+                    String searchString;
                     switch (twomenu) {
                         case "id": //Поиск по полю id
                             param = menu.Two2();

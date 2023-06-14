@@ -7,7 +7,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class JsonCreator {
     public static void main(String[] args) {

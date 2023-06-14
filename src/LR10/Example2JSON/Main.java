@@ -1,10 +1,6 @@
 package LR10.Example2JSON;
 
-import LR10.Example1XML.ParcerXML.MotobikesList;
-import LR10.Example1XML.ParcerXML.addNode;
-import LR10.Example1XML.ParcerXML.delNode;
-import LR10.Example1XML.ParcerXML.*;
-import org.w3c.dom.Document;
+import org.json.simple.parser.ParseException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -13,8 +9,8 @@ import java.io.IOException;
 public class Main {
 
     //Используем оператор цикла do-while для бесконечного цикла выбора пункта меню
-    public static void main(String args[])
-            throws IOException, ParserConfigurationException, TransformerException {
+    public static void main(String[] args)
+            throws IOException, ParserConfigurationException, TransformerException, ParseException {
         String choice;
         //Классы наиболее часто используемые в теле меню вынесены в заглавие
         JsonParcer parcer = new JsonParcer();
@@ -27,32 +23,31 @@ public class Main {
             switch (choice) {
                 case "1":
                     menu.One();
-                    //System.out.println(pars.mainName(pars.buildDocument()));
                     break;
                 case "2":
                     String twomenu = menu.Two1();
-                    short[] param = null;
+                    short[] param;
                     searchNode searchClass = new searchNode();
-                    String searchString = null;
+                    String searchString;
                     switch (twomenu) {
                         case "id": //Поиск по полю id
                             param = menu.Two2();
-                            LR10.Example1XML.ParcerXML.MotobikesList searchlist = searchClass.findLoopNum(twomenu, param);
+                            MotobikesList1 searchlist = searchClass.findLoopNum(twomenu, param);
                             System.out.println("Найдено: " + searchlist.toString());
                             break;
                         case "Vendor": // Поиск по полю Vendor
                             searchString = searchClass.searchString(twomenu);
-                            LR10.Example1XML.ParcerXML.MotobikesList searchMoto = searchClass.findLoopString(twomenu, searchString);
+                            MotobikesList1 searchMoto = searchClass.findLoopString(twomenu, searchString);
                             System.out.println("Результат поиска :" + searchMoto.toString());
                             break;
                         case "Model": // Поиск по полю Model
                             searchString = searchClass.searchString(twomenu);
-                            LR10.Example1XML.ParcerXML.MotobikesList searchMoto1 = searchClass.findLoopString(twomenu, searchString);
+                            MotobikesList1 searchMoto1 = searchClass.findLoopString(twomenu, searchString);
                             System.out.println("Результат поиска :" + searchMoto1.toString());
                             break;
                         case "Age": // Поиск по полю Age
                             param = menu.Two2();
-                            LR10.Example1XML.ParcerXML.MotobikesList searchlist2 = searchClass.findLoopNum(twomenu, param);
+                            MotobikesList1 searchlist2 = searchClass.findLoopNum(twomenu, param);
                             System.out.println("Найдено: " + searchlist2.toString());
                             break;
                     }
@@ -62,22 +57,18 @@ public class Main {
                    // menu.Two();
                     break;
                 case "4":
-                    /*System.out.println("Добавление узла в файл XML: ");
-                    LR10.Example1XML.ParcerXML.addNode addNode = new addNode();
-                    LR10.Example1XML.ParcerXML.MotobikesList motobikesList1 = addNode.addnode();
-                    Document doc = parcer.docCreator(motobikesList1);
-                    fileWorker.fileWriter(doc);*/
+                    System.out.println("Добавление узла в файл JSON: ");
+                    AddNode addNode = new AddNode();
+                    MotobikesList1 motobikesList1 = addNode.addnode();
+                    fileWorker.JsonCreater(motobikesList1);
                     break;
                 case "5":
-                   /* System.out.println("Удаление узлa в файле XML по номеру id");
-                    LR10.Example1XML.ParcerXML.MotobikesList motobikesList3 = parcer.parsMotoXML();
-                    LR10.Example1XML.ParcerXML.delNode delNode = new delNode();
-                    MotobikesList motobikesList4 = delNode.delNode(motobikesList3);
-                    Document doc1 = parcer.docCreator(motobikesList4);
-                    fileWorker.fileWriter(doc1);*/
+                   System.out.println("Удаление узлa в файле JSON по номеру id");
+                   MotobikesList1 motobikesList11 = parcer.parsJson();
+                   DelNode delNode = new DelNode();
+                   MotobikesList1 motobikesList12 = delNode.delNode(motobikesList11);
+                   fileWorker.JsonCreater(motobikesList12);
                     break;
-                /*case "5":
-                    parcer.JsonCreater(parcer.parsMotoXML());*/
             }
         } while (!choice.isEmpty());
     }

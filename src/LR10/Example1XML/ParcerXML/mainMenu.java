@@ -1,19 +1,18 @@
 package LR10.Example1XML.ParcerXML;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class mainMenu {
         String twoChoice1, twoChoice2 = "";
     boolean checker = false;
 
-    public String Menu() throws IOException {
+    public String Menu() {
         String choice;
         Scanner in = new Scanner(System.in);
         //Runtime runtime = getRuntime();
         //Process process = runtime.exec("cls"); //для linux "clear", в виндовс "cls"
         System.out.print("\033[H\033[2J");
-        System.out.println("Парсер XML v.0.8");
+        System.out.println("Парсер XML v.0.9");
         System.out.println("Выберите действие: ");
         System.out.println(" 1. Парсинг файла");
         System.out.println(" 2. Поиск по полям в файле");
@@ -27,7 +26,7 @@ public class mainMenu {
     }
 
     public void One() {
-        String oneChoice = "";
+        String oneChoice;
         FileWorker fileWorker = new FileWorker();
         Parcer pars = new Parcer();
         MotobikesList motobikesList = pars.parsMotoXML();
@@ -44,7 +43,7 @@ public class mainMenu {
                     System.out.println("Ок");
                     break;
             }
-        } while (oneChoice == "n");
+        } while (oneChoice.equals("n"));
     }
 
     public String Two1() {
@@ -77,7 +76,7 @@ public class mainMenu {
                     break;
             }
         }
-        while (checker != true);
+        while (!checker);
         return twoMenu;
     }
 
@@ -102,7 +101,7 @@ public class mainMenu {
                     if (param[0] > 0) {
                         checker = true;
                     }}
-                    while (checker != true);
+                    while (!checker);
                     break;
                 case "2":
                     do {
@@ -132,9 +131,9 @@ public class mainMenu {
                             }} else {
                             System.out.println("Нижняя граница диапозона - не положительное число! Пожайлуста снова введите значения границ диапазона.");
                             }}
-                        while (checker != true);
+                        while (!checker);
                     break;
         }}
-        while (checker != true);
+        while (!checker);
         return param;
 }}

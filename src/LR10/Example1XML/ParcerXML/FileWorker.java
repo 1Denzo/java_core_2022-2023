@@ -24,25 +24,21 @@ public class FileWorker {
         try {
             doc = dbf.newDocumentBuilder().parse(file);
         } catch (Exception e) {
-            System.out.println("Ошибка открытия парсинга!!!" + e.toString());
+            System.out.println("Ошибка открытия парсинга!!!" + e);
         }
         return doc;
     }
 
-    protected String mainName(Document doc1) {
-        doc1 = buildDocument();
-        String mainName = doc1.getFirstChild().getNodeName();
-        //System.out.println("FirtsChild " + mainName.toString());
-        return mainName;
+    protected String mainName() {
+        Document doc1 = buildDocument();
+        return doc1.getFirstChild().getNodeName();
     }
-
-    protected String nodeName(Document doc1) {
+/*    protected String nodeName(Document doc1) {
         doc1 = buildDocument();
         String nodeName = doc1.getFirstChild().getChildNodes().item(0).getNodeName();
         //System.out.println("FirtsChild " + mainName.toString());
         return nodeName;
-    }
-
+    }*/
     public void fileWriter(Document doc2) {
         try {
             //Запись XML-файла из объекта doc2
@@ -77,7 +73,7 @@ public class FileWorker {
             dOut.close();
             System.out.println("Файл записан.");
         } catch (IOException e) {
-            System.out.println("" + e);
+            System.out.println(String.valueOf(e));
         }
     }
 }

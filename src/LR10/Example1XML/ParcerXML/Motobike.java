@@ -8,12 +8,10 @@ public class Motobike {
         this.id = Integer.toString(id);
     }
     public String getId() {
-        String idS = this.id;
-        return idS;
+        return this.id;
     }
         public Short getIdI() {
-            Short idI = Short.decode(this.id);
-            return idI;
+            return Short.decode(this.id);
     }
     public String getVendor() {
         return vendor;
@@ -22,12 +20,10 @@ public class Motobike {
         return model;
     }
     public String getAge() {
-        String ageS = this.age;
-        return ageS;
+        return this.age;
     }
     public Short getAgeShort() {
-        Short ageShort = Short.valueOf(this.age);
-        return ageShort;
+        return Short.valueOf(this.age);
     }
     public Motobike(int id, String vendor, String model, int age) {
         this.id = Integer.toString(id);

@@ -1,19 +1,17 @@
 package LR10.Example2JSON;
-public class Motobike {
-    private int id;
+public class Motobike1 {
+    private String id;
     private String vendor;
     private String model;
-    private int age;
+    private String age;
     public void setId(int id) {
-        this.id = id;
+        this.id = Integer.toString(id);
     }
     public String getId() {
-        String idS = Integer.toString(id);
-        return idS;
+        return this.id;
     }
-        public Short getIdI() {
-            Short idI = (short)this.id;
-            return idI;
+    public Short getIdI() {
+        return Short.decode(this.id);
     }
     public String getVendor() {
         return vendor;
@@ -22,39 +20,32 @@ public class Motobike {
         return model;
     }
     public String getAge() {
-        String ageS = Integer.toString(age);
-        return ageS;
+        return this.age;
     }
     public Short getAgeShort() {
-        Short ageShort = (short)this.age;
-        return ageShort;
+        return Short.valueOf(this.age);
     }
-    public Motobike(int id, String vendor, String model, int age) {
+    public Motobike1(String id, String vendor, String model, String age) {
         this.id = id;
         this.vendor = vendor;
         this.model = model;
         this.age = age;
     }
-    public void setMoto(int id, String vendor, String model, int age) {
+   /* public void setMoto(String id, String vendor, String model, String age) {
         this.id = id;
         this.vendor = vendor;
         this.model = model;
         this.age = age;
-    }
-
+    }*/
     @Override
     public String toString() {
-        return "Motobike{" +
-                "id=" + id +
-                ", vendor='" + vendor + '\'' +
-                ", model='" + model + '\'' +
-                ", age=" + age +
-                '}';
+        return "{\"id\":" + "\"" + id + "\"" +
+                ",\"vendor\":" + "\"" + vendor + "\"" +
+                ",\"model\":" + "\"" + model + "\"" +
+                ",\"age\":" + "\"" +  age + "\"" +
+                "}";
     }
 }
-
-
-
    // public void Motobikes setBike(String vendor, String model, int age) {
    //    this.vendor = vendor;
   //      this.model = model;

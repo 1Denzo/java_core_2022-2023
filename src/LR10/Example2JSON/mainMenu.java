@@ -1,56 +1,59 @@
 package LR10.Example2JSON;
 
-import LR10.Example1XML.ParcerXML.MotobikesList;
-import LR10.Example1XML.ParcerXML.Parcer;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class mainMenu {
-        String twoChoice1, twoChoice2 = "";
+    String twoChoice1, twoChoice2 = "";
     boolean checker = false;
 
-    public String Menu() throws IOException {
+    public String Menu() {
         String choice;
         Scanner in = new Scanner(System.in);
         //Runtime runtime = getRuntime();
         //Process process = runtime.exec("cls"); //для linux "clear", в виндовс "cls"
         System.out.print("\033[H\033[2J");
-        System.out.println("Парсер JSON v.0.8");
+        System.out.println("Парсер JSON v.0.9");
         System.out.println("Выберите действие: ");
         System.out.println(" 1. Парсинг файла");
         System.out.println(" 2. Поиск по полям в файле");
         System.out.println(" 3. Переписывание узла в файле");
         System.out.println(" 4. Добавление узла в файл");
-        System.out.println(" 5. Удаление узлa в файле\n");
-
+        System.out.println(" 5. Удаление узлa в файле");
         System.out.println("Выберите один из пунктов меню, или нажмите <enter> для выхода из программы: ");
         choice = in.nextLine();
         return choice;
     }
 
-    public void One() {
-        String oneChoice = "";
+    public void One() throws ParseException {
+        String oneChoice;
         FileWorker fileWorker = new FileWorker();
         JsonParcer pars = new JsonParcer();
-        //MotobikesList motobikesList = pars.JsonPars(fileWorker.fileReader());
-        //System.out.println(motobikesList.toString());
+        MotobikesList1 motobikesList1;
+        try {
+            motobikesList1 = pars.parsJson();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(motobikesList1.toString());
+
         do {
             Scanner in = new Scanner(System.in);
             System.out.println("Сохранить данные в файл .txt? (y/n)");
             oneChoice = in.nextLine();
             switch (oneChoice) {
                 case "y":
-                    //fileWorker.txtFileWriter(motobikesList);
+                    fileWorker.txtFileWriter(motobikesList1);
                     continue;
                 case "n":
                     System.out.println("Ок");
                     break;
             }
-        } while (oneChoice == "n");
+        } while (oneChoice.equals("n"));
     }
-
-    public String Two1() {
+   public String Two1() {
         String twoMenu = "";
         do {
             Scanner in = new Scanner(System.in);
@@ -80,7 +83,7 @@ public class mainMenu {
                     break;
             }
         }
-        while (checker != true);
+        while (!checker);
         return twoMenu;
     }
 
@@ -94,18 +97,19 @@ public class mainMenu {
             twoChoice2 = in.nextLine();
             switch (twoChoice2) {
                 case "1":
-                        do {
-                            try {
-                                Scanner in2 = new Scanner(System.in);
-                        System.out.println("Введите значение ");
-                        param[0] = in2.nextShort();
-                    } catch (Exception e) {
-                        System.out.println("Ошибка ввода параметра! Пожайлуста, снова введите значение..." + e);
+                    do {
+                        try {
+                            Scanner in2 = new Scanner(System.in);
+                            System.out.println("Введите значение ");
+                            param[0] = in2.nextShort();
+                        } catch (Exception e) {
+                            System.out.println("Ошибка ввода параметра! Пожайлуста, снова введите значение..." + e);
+                        }
+                        if (param[0] > 0) {
+                            checker = true;
+                        }
                     }
-                    if (param[0] > 0) {
-                        checker = true;
-                    }}
-                    while (checker != true);
+                    while (!checker);
                     break;
                 case "2":
                     do {
@@ -124,20 +128,26 @@ public class mainMenu {
                             param[1] = in1.nextShort();
                         } catch (Exception e) {
                             System.out.println("Ошибка ввода параметра! Пожайлуста, снова введите значение..." + e);
-                        } if (param[0] > 0) {
+                        }
+                        if (param[0] > 0) {
                             if (param[1] > 0) {
                                 if (param[1] > param[0]) {
                                     checker = true;
                                 } else {
                                     System.out.println("Неверный диапазон значений!!! Верхняя граница меньше нижней, пожайлуста снова введите значения границ диапазона.");
-                                }} else {
+                                }
+                            } else {
                                 System.out.println("Верхняя граница диапозона - не положительное число! Пожайлуста снова введите значения границ диапазона.");
-                            }} else {
+                            }
+                        } else {
                             System.out.println("Нижняя граница диапозона - не положительное число! Пожайлуста снова введите значения границ диапазона.");
-                            }}
-                        while (checker != true);
+                        }
+                    }
+                    while (!checker);
                     break;
-        }}
-        while (checker != true);
+            }
+        }
+        while (!checker);
         return param;
-}}
+    }
+}

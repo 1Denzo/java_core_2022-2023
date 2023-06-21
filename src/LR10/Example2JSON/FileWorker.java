@@ -27,7 +27,7 @@ public class FileWorker {
     }
 
 
-    public void JsonCreater(MotobikesList1 motobikesList1) {
+    public void JsonMod(MotobikesList1 motobikesList1) {
         ArrayList<Motobike1> motobikeArrayList = motobikesList1.getMotobikesList();
         String mainName = motobikesList1.getMainName();
         JSONObject bikeArray = new JSONObject();
@@ -57,7 +57,7 @@ public class FileWorker {
             dOut.close();
             System.out.println("Файл записан.");
         } catch (IOException e) {
-            System.out.println(String.valueOf(e));
+            System.out.println(e);
         }
     }
 }

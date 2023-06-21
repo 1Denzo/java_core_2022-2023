@@ -13,7 +13,7 @@ public class DelNode {
         boolean checker = false;
         int idDelNode;
         do {
-            System.out.println("Введите номер индификатора для удаляемого элемета списка " + mainName + ":");
+            System.out.println("Введите номер индификатора для удаляемого элемета (1 - " + parent.size() + ") " + "списка " + mainName + ":");
             idDelNode = in.nextInt();
 
             if (idDelNode >= 1 && idDelNode <= parent.size() + 1) {

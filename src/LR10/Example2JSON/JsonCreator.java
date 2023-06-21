@@ -18,8 +18,6 @@ public class JsonCreator {
         JSONArray motobikes = new JSONArray();
         motobikes.addAll(motobikeArrayList);
         bikeArray.put(mainName, motobikes);
-
-
             try (FileWriter file = new FileWriter("src/LR10/Example2JSON/moto.json")) {
                 file.write(bikeArray.toJSONString());
                 System.out.println("Json файл успешно создан!");

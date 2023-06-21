@@ -53,21 +53,26 @@ public class Main {
                     }
                    break;
                 case "3":
-                    System.out.println("Измененение узла в файл XML: ");
-                   // menu.Two();
+                    ReWriteNode reWriteNode = null;
+                    System.out.println("Измененение узла в файле XML: ");
+                    MotobikesList1 motobikesList1 = parcer.parsJson();
+                   int idReWriteNode = menu.Three(motobikesList1);
+                    MotobikesList1 motobikesList12 = reWriteNode.reWriteNode(idReWriteNode);
+
+                    System.out.println(idReWriteNode);
                     break;
                 case "4":
                     System.out.println("Добавление узла в файл JSON: ");
                     AddNode addNode = new AddNode();
-                    MotobikesList1 motobikesList1 = addNode.addnode();
-                    fileWorker.JsonCreater(motobikesList1);
+                    MotobikesList1 motobikesList13 = addNode.addnode();
+                    fileWorker.JsonMod(motobikesList13);
                     break;
                 case "5":
                    System.out.println("Удаление узлa в файле JSON по номеру id");
-                   MotobikesList1 motobikesList11 = parcer.parsJson();
+                   MotobikesList1 motobikesList14 = parcer.parsJson();
                    DelNode delNode = new DelNode();
-                   MotobikesList1 motobikesList12 = delNode.delNode(motobikesList11);
-                   fileWorker.JsonCreater(motobikesList12);
+                   MotobikesList1 motobikesList15 = delNode.delNode(motobikesList14);
+                   fileWorker.JsonMod(motobikesList15);
                     break;
             }
         } while (!choice.isEmpty());

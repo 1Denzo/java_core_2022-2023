@@ -31,12 +31,12 @@ public class Motobike1 {
         this.model = model;
         this.age = age;
     }
-   /* public void setMoto(String id, String vendor, String model, String age) {
+   public void setMoto(String id, String vendor, String model, String age) {
         this.id = id;
         this.vendor = vendor;
         this.model = model;
         this.age = age;
-    }*/
+    }
     @Override
     public String toString() {
         return "{\"id\":" + "\"" + id + "\"" +

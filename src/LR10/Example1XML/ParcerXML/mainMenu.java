@@ -10,7 +10,7 @@ public class mainMenu {
         String choice;
         Scanner in = new Scanner(System.in);
         //Runtime runtime = getRuntime();
-        //Process process = runtime.exec("cls"); //для linux "clear", в виндовс "cls"
+        //Process process = runtime.exec("cls"); //для linux "clear", в windows "cls"
         System.out.print("\033[H\033[2J");
         System.out.println("Парсер XML v.0.9");
         System.out.println("Выберите действие: ");

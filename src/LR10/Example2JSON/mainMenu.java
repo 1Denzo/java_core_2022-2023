@@ -3,6 +3,7 @@ package LR10.Example2JSON;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class mainMenu {
@@ -151,5 +152,24 @@ public class mainMenu {
         }
         while (!checker);
         return param;
+    }
+    public int Three(MotobikesList1 motobikesList1) {
+        Scanner in = new Scanner(System.in);
+        String mainName = motobikesList1.getMainName();
+        ArrayList<Motobike1> parent = motobikesList1.getMotobikesList();
+        boolean checker = false;
+        int idReWriteNode;
+        do {
+            System.out.println("Введите номер индификатора для удаляемого элемета (1 - " + parent.size() + ") " + "списка " + mainName + ":");
+            idReWriteNode = in.nextInt();
+
+            if (idReWriteNode >= 1 && idReWriteNode <= parent.size() + 1) {
+                checker = true;
+            } else {
+                System.out.println("Число вне диапазона адресов массива!!! Введите правильное число!");
+            }
+        }
+        while (!checker);
+        return idReWriteNode;
     }
 }

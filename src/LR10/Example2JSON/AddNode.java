@@ -25,7 +25,7 @@ public class AddNode {
         System.out.println("Введите номер индификатора для первого добавляемого элемета списка " + mainName + ":");
         int delimiter = in.nextInt();
         ArrayList<Motobike1> parent = motobikesList.getMotobikesList();
-        for (int i = 0; i < parent.size(); i++) { //Добавление новых элементов в массив second
+        for (int i = 0; i < parent.size(); i++) { //Добавление новых элементов в массив parent
             if (i >= (delimiter-1) && i < (delimiter + elementNumber - 1)) {
                 System.out.println("Введите название фирмы-изготовителя мотоцикла " + (i + 1) + ":");
                 inVend = in.next();

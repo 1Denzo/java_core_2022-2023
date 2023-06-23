@@ -90,6 +90,7 @@ public class mainMenu {
     public short[] Two2() {
         short[] param = new short[2];
         do {
+            checker = false;
             Scanner in = new Scanner(System.in);
             System.out.println("1. Поиск по значению (например Age = 5, только положительные целые числа) ");
             System.out.println("2. Поиск по диапозону (напиример 3 < Age < 10, только положительный диапазон)");
@@ -113,6 +114,7 @@ public class mainMenu {
                     break;
                 case "2":
                     do {
+                        //param = null;
                         try {
                             Scanner in3 = new Scanner(System.in);
                             param[0] = 0;

@@ -13,9 +13,9 @@ import java.util.Scanner;
 public class FileWorker {
 
     private static final String TAG_PATHFILE =
-            "C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1XML\\ParcerXML\\MotobikeList.xml";
+            "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1XML\\ParcerXML\\MotobikeList.xml";
     static final String TAG_PATHFOLDER =
-            "C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1XML\\ParcerXML\\";
+            "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example1XML\\ParcerXML\\";
 
     protected Document buildDocument() {
         File file = new File(TAG_PATHFILE);

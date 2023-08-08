@@ -48,11 +48,3 @@ public class Motobike {
     }
 }
 
-
-
-   // public void Motobikes setBike(String vendor, String model, int age) {
-   //    this.vendor = vendor;
-  //      this.model = model;
-  //      this.age = age;
-  //  }
-

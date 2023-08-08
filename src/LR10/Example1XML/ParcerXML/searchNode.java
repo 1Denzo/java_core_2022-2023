@@ -80,7 +80,5 @@ public class searchNode {
                 break;
         }
         return new MotobikesList(mainName, searchList);
-
-
     }
 }

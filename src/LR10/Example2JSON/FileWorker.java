@@ -4,8 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -25,8 +23,6 @@ public class FileWorker {
         }
         return obj;
     }
-
-
     public void JsonMod(MotobikesList1 motobikesList1) {
         ArrayList<Motobike1> motobikeArrayList = motobikesList1.getMotobikesList();
         String mainName = motobikesList1.getMainName();

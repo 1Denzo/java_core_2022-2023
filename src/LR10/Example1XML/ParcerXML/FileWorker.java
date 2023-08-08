@@ -33,12 +33,7 @@ public class FileWorker {
         Document doc1 = buildDocument();
         return doc1.getFirstChild().getNodeName();
     }
-/*    protected String nodeName(Document doc1) {
-        doc1 = buildDocument();
-        String nodeName = doc1.getFirstChild().getChildNodes().item(0).getNodeName();
-        //System.out.println("FirtsChild " + mainName.toString());
-        return nodeName;
-    }*/
+
     public void fileWriter(Document doc2) {
         try {
             //Запись XML-файла из объекта doc2

@@ -95,7 +95,7 @@ public class Parcer {
             public  void JsonPars(MotobikesList motobikesList) {
                 try {
                     JSONParser parser = new JSONParser();
-                    Object obj = parser.parse(new FileReader("C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example2JSON\\moto.json"));
+                    Object obj = parser.parse(new FileReader("C:\\Users\\denzo\\IdeaProjects\\java_core_2022-2023\\src\\LR10\\Example2JSON\\moto1.json"));
                     JSONObject jsonObject = (JSONObject) obj;
                     System.out.println("Корневой элемент: "
                             + jsonObject.keySet().iterator().next());

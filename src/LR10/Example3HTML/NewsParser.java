@@ -5,9 +5,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
-
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.dom.DOMSource;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

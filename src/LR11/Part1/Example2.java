@@ -1,13 +1,13 @@
-package LR11;
+package LR11.Part1;
 
-public class Example1 {
+public class Example2 {
     public static void m(int x) {
         System.out.println("x=" + x);
-        if((2 * x + 1) < 20) {
-            m(2 * x + 1);
+        if (((x - 1) / 2) > 0) {
+            m((x - 1) / 2);
         }
     }
     public static void main(String[] args) {
-        m(1);
+        m(15);
     }
 }

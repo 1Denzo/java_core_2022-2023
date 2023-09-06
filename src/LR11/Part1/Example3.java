@@ -1,4 +1,4 @@
-package LR11;
+package LR11.Part1;
 
 public class Example3 {
     private static int step = 0;

@@ -1,4 +1,4 @@
-package LR11;
+package LR11.Part1;
 
 import java.util.Scanner;
 public class Example6 {

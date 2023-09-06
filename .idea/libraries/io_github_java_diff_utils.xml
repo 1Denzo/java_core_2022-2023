@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="io.github.java.diff.utils" type="repository">
+    <properties maven-id="io.github.java-diff-utils:java-diff-utils:4.12" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/java-diff-utils-4.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

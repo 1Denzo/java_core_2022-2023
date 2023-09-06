@@ -13,5 +13,6 @@
     <orderEntry type="library" exported="" name="apache.poi" level="project" />
     <orderEntry type="library" exported="" name="apache.poi.ooxml" level="project" />
     <orderEntry type="library" exported="" name="json-simple-1.1.11" level="project" />
+    <orderEntry type="library" name="io.github.java.diff.utils" level="project" />
   </component>
 </module>

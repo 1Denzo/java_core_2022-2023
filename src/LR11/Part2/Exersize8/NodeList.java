@@ -9,6 +9,10 @@ public class NodeList { // Программа на Java для реализац�
         Node(int d) { // Конструктор класса Node c одной переменной для хвоста
             data = d;
         }
+        Node(int data, Node next){
+            this.data = data;
+            this.next = next;
+        }
     }
 }
 

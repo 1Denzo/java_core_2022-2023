@@ -9,8 +9,23 @@ public class Main {
         NodeList node1 = HeadCreateNodeList.headCreateNodelist(size);
         System.out.println("Односвязанный список созданный с головы: ");
         PrintNodeList.printList(node1);
-        NodeList node2 = TailCreateNodeList.TailCreateNodeList(size);
+        /*NodeList node2 = TailCreateNodeList.TailCreateNodeList(size);
         System.out.println("\n" + "Односвязанный список созданный с хвоста: ");
-        PrintNodeList.printList(node2);
+        PrintNodeList.printList(node2);*/
+        /*NodeList node3 = AddFirst.addFirst(node1);
+        System.out.println("Добавление нового элемента с головы списка: ");
+        PrintNodeList.printList(node3);*/
+        /*System.out.println("Метод вставки элемента по индексу в список: ");
+        NodeList node3 = InsertNumNode.insertNumNode(node1);
+        PrintNodeList.printList(node3);*/
+        /*System.out.println("\n" + "Метод удаления элемента в конце списка: ");
+        NodeList node4 = RemoveLastNode.removeLast(node1);
+        PrintNodeList.printList(node4);*/
+        /*System.out.println("\n" + "Метод удаления элемента в начале списка: ");
+        NodeList node5 = RemoveFirstNode.removeFirst(node1);
+        PrintNodeList.printList(node5);*/
+        System.out.println("\n" + "Метод удаления элемента по индексу списка: ");
+        NodeList node6 = RemoveNode.removeNumNode(node1);
+        PrintNodeList.printList(node6);
     }
 }

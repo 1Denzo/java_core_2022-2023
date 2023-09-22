@@ -28,11 +28,11 @@ public class Main {
         NodeList node6 = RemoveNode.removeNumNode(node1);
         PrintNodeList.printList(node6);*/
         System.out.println("\n" + "Метод создания списка с головы рекурсией: ");
-        NodeList.Node node7 = null;
-        node7 = RecursionMetods.createHeadRec(new NodeList.Node(size, null), size);
+        NodeList.Node node7 = RecursionMetods.createHeadRec(size);
         PrintNodeList.printList(node7);
-        System.out.println("\n" + "Метод создания списка с хвоста рекурсией: ");
-        node7 = RecursionMetods.createTailRec(size);
-        PrintNodeList.printList(node7);
+       System.out.println("\n" + "Метод создания списка с хвоста рекурсией: ");
+       NodeList.Node node8 = null;
+        node8 = RecursionMetods.createTailRec(size, node8);
+        RecursionMetods.printListRec(node8);
     }
 }

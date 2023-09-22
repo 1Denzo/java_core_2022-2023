@@ -2,12 +2,12 @@ package LR11.Part2.Exersize8;
 
 public class HeadCreateNodeList {
 
-    public static NodeList headCreateNodelist(int size) {
-        NodeList list = new NodeList(); // Инициализация односвязного списка
+    public static NodeList.Node headCreateNodelist(int size) {
+        NodeList.Node head = null; // Инициализация односвязного списка
         // Вставка значений
-        for (int i = 0; i < size; i++) {
-            list = InsertNodeList.insert(list, i);
+        for (int i = size - 1; 0 <= i ; i--) {
+            head = new NodeList.Node(i, head);
         }
-        return list;
+        return head;
     }
 }

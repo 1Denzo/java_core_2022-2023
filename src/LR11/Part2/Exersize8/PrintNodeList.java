@@ -3,9 +3,9 @@ package LR11.Part2.Exersize8;
 public class PrintNodeList {
 
     // Метод печати односвязанного списка в консоль
-    public static void printList(NodeList list)
+    public static void printList(NodeList.Node list)
     {
-        NodeList.Node currNode = list.head;
+        NodeList.Node currNode = list;
 
         System.out.print("Nodelist: ");
 

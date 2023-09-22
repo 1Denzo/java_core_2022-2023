@@ -11,15 +11,15 @@ public class InsertNodeList {
         list.head = new NodeList.Node(value, list.head);
         return list;
     }
-    public static NodeList insert(NodeList list, int data) {
+    public static NodeList.Node insert(NodeList.Node node, int data) {
         // Создание узла путем передачи данных конструктором
         NodeList.Node new_node = new NodeList.Node(data);
         // Если связанный список пуст тогда новый узел создается как голова списка
-        if (list.head == null) {
-            list.head = new_node;
+        if (node == null) {
+            node = new_node;
         } else {
             // Иначе пройти до последнего узла и вставлять new_node там
-            NodeList.Node last = list.head;
+            NodeList.Node last = node;
             while (last.next != null) {
                 last = last.next;
             }
@@ -27,7 +27,7 @@ public class InsertNodeList {
             last.next = new_node;
         }
         // Вернуть односвязанный список
-        return list;
+        return node;
     }
         public static NodeList insertNumNode(NodeList node) {
             System.out.println("Введите индекс для заменяемого элемента: ");

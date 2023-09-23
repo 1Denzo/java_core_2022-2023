@@ -12,14 +12,13 @@ public class RecursionMetods {
         }
             return new NodeList.Node(size - 1, createTailRec(size - 1, node));
         }
-    public static void printListRec(NodeList.Node list)  {
-        NodeList.Node currNode = list;
+    public static NodeList.Node printListRec(NodeList.Node list)  {
+        String delim = "_";
         // Обход элементов NodeList
         while (list.next == null) {
             // Распечатка данных из узла односвязанного списка
-            System.out.print(currNode.data + " ");
+            System.out.print(String.join(delim, printListRec(list).toString()));
             // Go to next node
-            currNode = currNode.next;
-        }
+        } return list.next;
     }
 }

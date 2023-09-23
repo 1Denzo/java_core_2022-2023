@@ -28,7 +28,7 @@ public class HashMap {
             map.entrySet().stream().filter(e -> e.getKey() == 0).forEach(e -> System.out.print(e.getValue() + ", "));
         }
             private static void printMap (Map < Integer, String > map){
-                map.entrySet().stream().forEach(e -> System.out.println(e.getKey() + ": " + e.getValue() + ";"));
+                map.entrySet().forEach(e -> System.out.println(e.getKey() + ": " + e.getValue() + ";"));
             }
 
             private static String[] getKeyMoreFive (Map < Integer, String > map){
@@ -36,14 +36,3 @@ public class HashMap {
             }
 
         }
-
-       /* Set<Integer> keys = numberAndStudent.keySet();
-        for (int i = 0 ; i < keys.size(); i++) {
-            if (keys.iterator() == 0 & ) {
-        System.out.println("Ключи: " + keys);
-
-        ArrayList<String> values = new ArrayList<>(numberAndStudent.values());
-        System.out.println("Значения: " + values);
-    }
-}
-*/

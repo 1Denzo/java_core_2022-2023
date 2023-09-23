@@ -1,5 +1,6 @@
 package LR12;
-
+/*4.	Напишите функцию, которая принимает на вход список чисел и
+ возвращает новый список, содержащий квадраты этих чисел.*/
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

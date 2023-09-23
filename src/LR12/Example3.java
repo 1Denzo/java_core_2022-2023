@@ -2,7 +2,8 @@ package LR12;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+/*3.	Напишите функцию, которая принимает на вход список строк и возвращает новый список,
+ содержащий только те строки, которые начинаются с большой буквы.*/
 public class Example3 {
     public static void main(String[] args) {
         String string = "Напишите функцию, Которая принимает на вход список " +

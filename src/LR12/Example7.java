@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 /*7.	Напишите функцию, которая принимает на вход список строк и возвращает новый список,
  содержащий только те строки, которые имеют длину больше заданного значения.*/

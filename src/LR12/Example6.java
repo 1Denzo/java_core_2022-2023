@@ -2,7 +2,6 @@ package LR12;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /*6.	Напишите функцию, которая принимает на вход список целых чисел и возвращает новый список,
  содержащий только те числа, которые делятся на заданное число без остатка.*/

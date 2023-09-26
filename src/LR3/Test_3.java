@@ -7,9 +7,9 @@ public class Test_3 {
         System.out.println("Введите количесвто цифр в последовательности Фибоначчи: ");
         Scanner in = new Scanner(System.in);
         int fib_Num = in.nextInt();
-        int a1 = 1;
-        int a2 = 0;
-        int a = 0;
+        long a1 = 1;
+        long a2 = 0;
+        long a = 0;
         for (int k = 0; k <= fib_Num; k++) {
             switch (k){
                 case 0:

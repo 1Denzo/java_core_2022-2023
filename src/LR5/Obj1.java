@@ -31,7 +31,6 @@ public class Obj1 {
 
          */
     }
-
     public static void main(String[] args) {
         Obj1 one = new Obj1();
         one.set('a');

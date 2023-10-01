@@ -3,7 +3,7 @@ package LR10.Example1XML.ParcerXML;
 import java.util.Scanner;
 
 public class mainMenu {
-        String twoChoice1, twoChoice2 = "";
+    String twoChoice1, twoChoice2 = "";
     boolean checker = false;
 
     public String Menu() {
@@ -91,18 +91,18 @@ public class mainMenu {
             twoChoice2 = in.nextLine();
             switch (twoChoice2) {
                 case "1":
-                        do {
-                            try {
-                                Scanner in2 = new Scanner(System.in);
-                        System.out.println("Введите значение ");
-                        param[0] = in2.nextShort();
-                    } catch (Exception e) {
-                        System.out.println("Ошибка ввода параметра! Пожайлуста, снова введите значение..." + e);
-                    }
-                    if (param[0] > 0) {
-                        checker = true;
-                    }
+                    do {
+                        try {
+                            Scanner in2 = new Scanner(System.in);
+                            System.out.println("Введите значение ");
+                            param[0] = in2.nextShort();
+                        } catch (Exception e) {
+                            System.out.println("Ошибка ввода параметра! Пожайлуста, снова введите значение..." + e);
                         }
+                        if (param[0] > 0) {
+                            checker = true;
+                        }
+                    }
                     while (!checker);
                     break;
                 case "2":
@@ -122,7 +122,8 @@ public class mainMenu {
                             param[1] = in1.nextShort();
                         } catch (Exception e) {
                             System.out.println("Ошибка ввода параметра! Пожайлуста, снова введите значение..." + e);
-                        } if (param[0] > 0) {
+                        }
+                        if (param[0] > 0) {
                             if (param[1] > 0) {
                                 if (param[1] > param[0]) {
                                     checker = true;
@@ -134,11 +135,13 @@ public class mainMenu {
                             }
                         } else {
                             System.out.println("Нижняя граница диапозона - не положительное число! Пожайлуста снова введите значения границ диапазона.");
-                            }
+                        }
                     }
-                        while (!checker);
+                    while (!checker);
                     break;
-        }}
+            }
+        }
         while (!checker);
         return param;
-}}
+    }
+}

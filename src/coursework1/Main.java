@@ -5,13 +5,22 @@ import org.w3c.dom.Document;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
 
     //Используем оператор цикла do-while для бесконечного цикла выбора пункта меню
     public static void main(String args[])
             throws IOException, ParserConfigurationException, TransformerException {
-        String choice;
+        /*String fileExtension = ".txt";*/
+
+        String[] filelist = FileWorker.FolderScaner();
+        for (int i = 0; i < filelist.length; i++) {
+            System.out.println(filelist[i]);
+        }
+    }
+}
+      /*  String choice;
         //Классы наиболее часто используемые в теле меню вынесены в заглавие
         Parcer parcer = new Parcer();
         FileWorker fileWorker = new FileWorker();
@@ -72,9 +81,9 @@ public class Main {
                     Document doc1 = parcer.docCreator(motobikesList4);
                     fileWorker.fileWriter(doc1);
                     break;
-                /*case "5":
-                    parcer.JsonCreater(parcer.parsMotoXML());*/
+                *//*case "5":
+                    parcer.JsonCreater(parcer.parsMotoXML());*//*
             }
         } while (!choice.isEmpty());
     }
-}
+}*/

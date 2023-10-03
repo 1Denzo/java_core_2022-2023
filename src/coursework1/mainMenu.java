@@ -1,5 +1,8 @@
 package coursework1;
 
+import org.apache.commons.io.FilenameUtils;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -13,7 +16,7 @@ public class mainMenu {
         //Runtime runtime = getRuntime();
         //Process process = runtime.exec("cls"); //для linux "clear", в виндовс "cls"
         System.out.print("\033[H\033[2J");
-        System.out.println("Парсер XML v.0.8");
+        System.out.println("Парсер XML-JSON-XLS v.0.9");
         System.out.println("Выберите действие: ");
         System.out.println(" 1. Парсинг файла");
         System.out.println(" 2. Поиск по полям в файле");
@@ -25,7 +28,6 @@ public class mainMenu {
         choice = in.nextLine();
         return choice;
     }
-
     public void One() {
         String oneChoice = "";
         FileWorker fileWorker = new FileWorker();

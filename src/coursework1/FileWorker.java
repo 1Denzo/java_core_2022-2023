@@ -2,6 +2,7 @@ package coursework1;
 
 import LR10.Example2JSON.Motobike1;
 import LR10.Example2JSON.MotobikesList1;
+import org.apache.commons.io.FilenameUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,8 +21,24 @@ public class FileWorker {
 
     private static final String TAG_PATHFILE =
             "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\coursework1\\MotobikeList.xml";
-    static final String TAG_PATHFOLDER =
+    private static final String TAG_PATHFOLDER =
             "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\coursework1\\";
+
+    public static String[] FolderScaner() {
+        File folder = new File(TAG_PATHFOLDER);
+        File[] listOfFiles = folder.listFiles();
+        String[] filesName = new String[listOfFiles.length];
+        String fileExtension = ".java";
+
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                if (listOfFiles[i].getName().endsWith(fileExtension)) {
+                    filesName[i] = listOfFiles[i].getName();
+                }
+            }
+        }
+        return filesName;
+    }
 
     protected Document buildDocument() {
         File file = new File(TAG_PATHFILE);
@@ -86,6 +103,7 @@ public class FileWorker {
             System.out.println("" + e);
         }
     }
+
     public Object fileReader() throws ParseException {
         JSONParser parser = new JSONParser();
         Object obj;
@@ -105,15 +123,16 @@ public class FileWorker {
         JSONArray motobikes = new JSONArray();
         motobikes.addAll(motobikeArrayList);
         bikeArray.put(mainName, motobikes);
-        try (FileWriter file = new FileWriter(TAG_PATHFOLDER + "moto1.json")){
-            file.write( bikeArray.toJSONString());
+        try (FileWriter file = new FileWriter(TAG_PATHFOLDER + "moto1.json")) {
+            file.write(bikeArray.toJSONString());
             file.flush();
             file.close();
             System.out.println("Json файл изменен!");
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void txtFileWriter(MotobikesList1 motobikesList1) {
         Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8);
         System.out.print("Введите имя файла => ");

@@ -7,16 +7,53 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class mainMenu {
-        String twoChoice1, twoChoice2 = "";
-    boolean checker = false;
+    static String twoChoice1;
+    String twoChoice2 = "";
+    static boolean checker = false;
+
+    public static void Welcome() {
+        System.out.print("\033[H\033[2J");
+        System.out.println("Конвертер XML-JSON-XLS v.1.0");
+        System.out.println("корневая папка для поиска файлов :" + FileWorker.TAG_PATHFOLDER);
+    }
+    public static String ChoiceFileExten() {
+        String fileexten = null;
+        Scanner in = new Scanner(System.in);
+        System.out.println("\n" + "С какими файлами будем работать: ");
+        System.out.println("1. С файлами .XML ");
+        System.out.println("2. С файлами .JSON ");
+        System.out.println("3. С файлами .XLS ");
+        System.out.println("4. Выход первоначальное меню ");
+        System.out.println("\n" + "Выберите один из пунктов: ");
+         do {
+        twoChoice1 = in.nextLine();
+        switch (twoChoice1) {
+            case "1":
+                fileexten = ".xml";
+                checker = true;
+                break;
+            case "2":
+                fileexten = ".json";
+                checker = true;
+                break;
+            case "3":
+                fileexten = ".xls";
+                checker = true;
+                break;
+            case "4":
+                fileexten = ".xls";
+                checker = true;
+                break;
+        }
+    } while (twoChoice1 == "4");
+        return fileexten;
+    }
+
 
     public String Menu() throws IOException {
-        String choice;
         Scanner in = new Scanner(System.in);
         //Runtime runtime = getRuntime();
         //Process process = runtime.exec("cls"); //для linux "clear", в виндовс "cls"
-        System.out.print("\033[H\033[2J");
-        System.out.println("Парсер XML-JSON-XLS v.0.9");
         System.out.println("Выберите действие: ");
         System.out.println(" 1. Парсинг файла");
         System.out.println(" 2. Поиск по полям в файле");
@@ -25,9 +62,10 @@ public class mainMenu {
         System.out.println(" 5. Удаление узлa в файле\n");
 
         System.out.println("Выберите один из пунктов меню, или нажмите <enter> для выхода из программы: ");
-        choice = in.nextLine();
-        return choice;
+        twoChoice1 = in.nextLine();
+        return twoChoice1;
     }
+
     public void One() {
         String oneChoice = "";
         FileWorker fileWorker = new FileWorker();
@@ -93,17 +131,18 @@ public class mainMenu {
             twoChoice2 = in.nextLine();
             switch (twoChoice2) {
                 case "1":
-                        do {
-                            try {
-                                Scanner in2 = new Scanner(System.in);
-                        System.out.println("Введите значение ");
-                        param[0] = in2.nextShort();
-                    } catch (Exception e) {
-                        System.out.println("Ошибка ввода параметра! Пожайлуста, снова введите значение..." + e);
+                    do {
+                        try {
+                            Scanner in2 = new Scanner(System.in);
+                            System.out.println("Введите значение ");
+                            param[0] = in2.nextShort();
+                        } catch (Exception e) {
+                            System.out.println("Ошибка ввода параметра! Пожайлуста, снова введите значение..." + e);
+                        }
+                        if (param[0] > 0) {
+                            checker = true;
+                        }
                     }
-                    if (param[0] > 0) {
-                        checker = true;
-                    }}
                     while (checker != true);
                     break;
                 case "2":
@@ -123,20 +162,26 @@ public class mainMenu {
                             param[1] = in1.nextShort();
                         } catch (Exception e) {
                             System.out.println("Ошибка ввода параметра! Пожайлуста, снова введите значение..." + e);
-                        } if (param[0] > 0) {
+                        }
+                        if (param[0] > 0) {
                             if (param[1] > 0) {
                                 if (param[1] > param[0]) {
                                     checker = true;
                                 } else {
                                     System.out.println("Неверный диапазон значений!!! Верхняя граница меньше нижней, пожайлуста снова введите значения границ диапазона.");
-                                }} else {
+                                }
+                            } else {
                                 System.out.println("Верхняя граница диапозона - не положительное число! Пожайлуста снова введите значения границ диапазона.");
-                            }} else {
+                            }
+                        } else {
                             System.out.println("Нижняя граница диапозона - не положительное число! Пожайлуста снова введите значения границ диапазона.");
-                            }}
-                        while (checker != true);
+                        }
+                    }
+                    while (checker != true);
                     break;
-        }}
+            }
+        }
         while (checker != true);
         return param;
-}}
+    }
+}

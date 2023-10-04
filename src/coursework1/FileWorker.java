@@ -2,7 +2,6 @@ package coursework1;
 
 import LR10.Example2JSON.Motobike1;
 import LR10.Example2JSON.MotobikesList1;
-import org.apache.commons.io.FilenameUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -19,21 +18,22 @@ import java.util.Scanner;
 
 public class FileWorker {
 
-    private static final String TAG_PATHFILE =
+    public static final String TAG_PATHFILE =
             "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\coursework1\\MotobikeList.xml";
-    private static final String TAG_PATHFOLDER =
+    public static final String TAG_PATHFOLDER =
             "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\coursework1\\";
 
-    public static String[] FolderScaner() {
+    public static ArrayList<String> FolderScaner(String fileExtension) {
+        System.out.println("");
         File folder = new File(TAG_PATHFOLDER);
         File[] listOfFiles = folder.listFiles();
-        String[] filesName = new String[listOfFiles.length];
-        String fileExtension = ".java";
-
+        ArrayList<String> filesName = new ArrayList<>();
         for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                if (listOfFiles[i].getName().endsWith(fileExtension)) {
-                    filesName[i] = listOfFiles[i].getName();
+            if (listOfFiles[i] != null) {
+                if (listOfFiles[i].isFile()) {
+                    if (listOfFiles[i].getName().endsWith(fileExtension)) {
+                        filesName.add(listOfFiles[i].getName());
+                    }
                 }
             }
         }

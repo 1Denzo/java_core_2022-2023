@@ -17,36 +17,36 @@ public class mainMenu {
         System.out.println("корневая папка для поиска файлов :" + FileWorker.TAG_PATHFOLDER);
     }
     public static String ChoiceFileExten() {
-        String fileexten = null;
-        Scanner in = new Scanner(System.in);
-        System.out.println("\n" + "С какими файлами будем работать: ");
-        System.out.println("1. С файлами .XML ");
-        System.out.println("2. С файлами .JSON ");
-        System.out.println("3. С файлами .XLS ");
-        System.out.println("4. Выход первоначальное меню ");
-        System.out.println("\n" + "Выберите один из пунктов: ");
+        String filexten = "end";
          do {
+             checker = false;
+             Scanner in = new Scanner(System.in);
+             System.out.println("\n" + "С какими файлами будем работать: ");
+             System.out.println("1. С файлами .XML ");
+             System.out.println("2. С файлами .JSON ");
+             System.out.println("3. С файлами .XLS ");
+             System.out.println("Выберите один из пунктов меню, или нажмите <enter> для выхода из программы: ");
         twoChoice1 = in.nextLine();
         switch (twoChoice1) {
             case "1":
-                fileexten = ".xml";
+                filexten = ".xml";
                 checker = true;
                 break;
             case "2":
-                fileexten = ".json";
+                filexten = ".json";
                 checker = true;
                 break;
             case "3":
-                fileexten = ".xls";
+                filexten = ".xls";
                 checker = true;
                 break;
-            case "4":
-                fileexten = ".xls";
-                checker = true;
-                break;
+            default:
+                if (!twoChoice1.isEmpty()) {
+                    System.out.println("Не понял вас..");
+                }
         }
-    } while (twoChoice1 == "4");
-        return fileexten;
+    } while (checker != true);
+        return filexten;
     }
 
 

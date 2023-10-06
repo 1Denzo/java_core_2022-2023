@@ -1,11 +1,11 @@
 package coursework1;
 
 import org.w3c.dom.Document;
-
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -13,8 +13,28 @@ public class Main {
     public static void main(String[] args)
             throws IOException, ParserConfigurationException, TransformerException {
         mainMenu.Welcome();
-        String fileexten = mainMenu.ChoiceFileExten();
-        ArrayList<String> filelist = FileWorker.FolderScaner(fileexten);
+        String filexten = mainMenu.ChoiceFileExten();
+        if (filexten == "end") {
+            System.exit(0);
+        }
+        ArrayList<String> filelist = FileWorker.FolderScaner(filexten);
+        if (filelist.size() == 0) {
+            System.out.println("Файлы не найдены!!!");
+            String endChoice;
+
+            do {
+                System.out.println("Продолжить работу с программой? (y/n)");
+                Scanner in = new Scanner(System.in);
+                endChoice = in.nextLine();
+                switch (endChoice) {
+                    case "y":
+                        continue;
+                    case "n":
+                        System.out.println("Пока!");
+                        break;
+                }
+            } while (endChoice == "n");
+        }
         for (String s : filelist) {
             System.out.println(s);
 

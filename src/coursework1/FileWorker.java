@@ -23,10 +23,12 @@ public class FileWorker {
             "C:\\Users\\reus\\IdeaProjects\\java_core_2022-2023\\src\\coursework1\\";
 
     public static ArrayList<String> FolderScaner(String fileExtension) {
-        System.out.println("");
         File folder = new File(TAG_PATHFOLDER);
         File[] listOfFiles = folder.listFiles();
         ArrayList<String> filesName = new ArrayList<>();
+        if (fileExtension.equals("end")) {
+            System.exit(0);
+        }
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i] != null) {
                 if (listOfFiles[i].isFile()) {

@@ -48,8 +48,6 @@ public class mainMenu {
     } while (checker != true);
         return filexten;
     }
-
-
     public String Menu() throws IOException {
         Scanner in = new Scanner(System.in);
         //Runtime runtime = getRuntime();

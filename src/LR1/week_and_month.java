@@ -87,7 +87,7 @@ public class week_and_month {
 
         System.out.println("Day of week: " + day_Number);
         System.out.println("Day of month: " + number);
-        System.out.println("Date: " + number + "." + month_Number + ".2022");
+        System.out.println("Date: " + number + "." + month_Number + ".2023");
         in.close();
     }
 }

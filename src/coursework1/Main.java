@@ -39,11 +39,10 @@ public class Main {
             }
             for (String s : filelist) {
                 System.out.println(s);
+                checker = true;
             }
-            checker = true;
-        }
-        while (checker != true);
 
+        } while (!checker);
 
         String choice = "";
         Parcer parcer = new Parcer();

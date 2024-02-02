@@ -40,7 +40,12 @@ public class FileWorker {
         }
         return filesName;
     }
-
+/*public String FilecChooser(ArrayList<String> filelist) {
+for (String s : filelist) {
+    ca
+    System.out.println(s);
+}
+}*/
     protected Document buildDocument() {
         File file = new File(TAG_PATHFILE);
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

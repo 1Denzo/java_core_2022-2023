@@ -8,12 +8,10 @@ public class Motobike {
         this.id = id;
     }
     public String getId() {
-        String idS = Integer.toString(id);
-        return idS;
+        return Integer.toString(id);
     }
         public Short getIdI() {
-            Short idI = (short)this.id;
-            return idI;
+            return (Short) (short) this.id;
     }
     public String getVendor() {
         return vendor;
@@ -22,20 +20,12 @@ public class Motobike {
         return model;
     }
     public String getAge() {
-        String ageS = Integer.toString(age);
-        return ageS;
+        return Integer.toString(age);
     }
     public Short getAgeShort() {
-        Short ageShort = (short)this.age;
-        return ageShort;
+        return (Short) (short) this.age;
     }
     public Motobike(int id, String vendor, String model, int age) {
-        this.id = id;
-        this.vendor = vendor;
-        this.model = model;
-        this.age = age;
-    }
-    public void setMoto(int id, String vendor, String model, int age) {
         this.id = id;
         this.vendor = vendor;
         this.model = model;

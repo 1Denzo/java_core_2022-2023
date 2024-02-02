@@ -14,7 +14,7 @@ public class mainMenu {
     public static void Welcome() {
         System.out.print("\033[H\033[2J");
         System.out.println("Конвертер XML-JSON-XLS v.1.0");
-        System.out.println("корневая папка для поиска файлов :" + FileWorker.TAG_PATHFOLDER);
+        System.out.println("корневая папка для поиска файлов: " + FileWorker.TAG_PATHFOLDER);
     }
     public static String ChoiceFileExten() {
         String filexten = "end";
@@ -40,6 +40,9 @@ public class mainMenu {
                 filexten = ".xls";
                 checker = true;
                 break;
+            case "":
+                filexten = "end";
+                checker = true;
             default:
                 if (!twoChoice1.isEmpty()) {
                     System.out.println("Не понял вас..");
@@ -61,6 +64,7 @@ public class mainMenu {
 
         System.out.println("Выберите один из пунктов меню, или нажмите <enter> для выхода из программы: ");
         twoChoice1 = in.nextLine();
+
         return twoChoice1;
     }
 

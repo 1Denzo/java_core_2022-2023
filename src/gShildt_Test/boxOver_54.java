@@ -1,7 +1,5 @@
 package gShildt_Test;
 
-import javax.swing.*;
-
 public class boxOver_54 {
     /* В данном примере конструкторы определяются
 в классе Вох для инициализации размеров

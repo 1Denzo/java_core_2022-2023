@@ -13,7 +13,7 @@ class box2_46 {
     }
 }
             class BoxDemoZ {
-                public static void main(String args[]) {
+                public static void main(String[] args) {
                     box2_46 mybox1 = new box2_46();
                     box2_46 mybox2 = new box2_46();
                     // присвоить значение переменным экземпляра mybox1

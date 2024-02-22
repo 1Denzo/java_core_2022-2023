@@ -7,7 +7,7 @@ public class box_45 {
         double depth;
         }
 class box_45Demo2 {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         box_45 mybox1 = new box_45();
         box_45 mybox2 = new box_45();
         double vol;

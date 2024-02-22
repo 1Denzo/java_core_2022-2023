@@ -1,7 +1,7 @@
 package gShildt_Test;
 
 public class conversation_12 {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         byte b;
         int i = 257;
         double d = 323.142;

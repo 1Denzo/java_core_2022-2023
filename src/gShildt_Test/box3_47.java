@@ -12,7 +12,7 @@ public class box3_47 {
     }
 }
         class BoxDemo4 {
-            public static void main(String args[]) {
+            public static void main(String[] args) {
                 box3_47 mybox1 = new box3_47();
                 box3_47 mybox2 = new box3_47();
                 double vol;

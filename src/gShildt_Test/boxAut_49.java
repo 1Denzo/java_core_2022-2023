@@ -21,7 +21,7 @@ public class boxAut_49 {
         }
     }
                 class BoxDemoB {
-                    public static void main(String args[]) {
+                    public static void main(String[] args) {
 // объявить, выделить память и инициализировать
 //объекты типа Вох
                         boxAut_49 mybox1 = new boxAut_49();

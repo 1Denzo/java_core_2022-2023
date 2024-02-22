@@ -19,7 +19,7 @@ public class box4_48 {
     }
 }
     class BoxDemo5 {
-        public static void main(String args[]) {
+        public static void main(String[] args) {
             box4_48 mybox1 = new box4_48();
             box4_48 mybox2 = new box4_48();
             double vol;
